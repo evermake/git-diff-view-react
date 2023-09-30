@@ -10,40 +10,47 @@ interface P {
 }
 
 let bottomBefore = -1
+let topBefore = -1
 
 function FileDiffList({ diffId, diffInfo, api }: P) {
   const topRef = useRef<HTMLDivElement | null>(null)
   const bottomRef = useRef<HTMLDivElement | null>(null)
 
   const beforeUpdate = (shouldUseBottomAnchor?: true) => {
-    if (shouldUseBottomAnchor) {
-      const bottomPosition = bottomRef.current?.getBoundingClientRect().top
-      if (bottomPosition === undefined)
-        return
+    const bottomPosition = bottomRef.current?.getBoundingClientRect().top
+    const topPosition = topRef.current?.getBoundingClientRect().top
+    if (bottomPosition === undefined || topPosition === undefined)
+      return
 
+    if (shouldUseBottomAnchor) {
       bottomBefore = bottomPosition
+      topBefore = -1
     }
     else {
+      topBefore = topPosition
       bottomBefore = -1
     }
   }
 
-  const { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, jumpToFile } = useDynamicDiff(diffId, diffInfo, api, beforeUpdate)
+  const { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, removeFromBottom, removeFromTop, jumpToFile } = useDynamicDiff(diffId, diffInfo, api, beforeUpdate)
 
   useEffect(() => {
     const bottomPosition = bottomRef.current?.getBoundingClientRect().top
-    if (bottomPosition === undefined)
+    const topPosition = topRef.current?.getBoundingClientRect().top
+    if (bottomPosition === undefined || topPosition === undefined)
       return
 
     if (bottomBefore !== -1)
       window.scrollBy(0, bottomPosition - bottomBefore)
+    if (topBefore !== -1)
+      window.scrollBy(0, topPosition - topBefore)
   }, [renderFiles])
 
   useEffect(() => {
     continueBottom()
     // jumpToFile('bunsen/bunsen-core-r4/src/main/java/com/cerner/bunsen/definitions/r4/package-info.java')
 
-    addEventListener('scroll', () => {
+    addEventListener('scroll', (e) => {
       const bottomPosition = bottomRef.current?.getBoundingClientRect().top
       const topPosition = topRef.current?.getBoundingClientRect().top
       if (bottomPosition === undefined || topPosition === undefined)
@@ -54,6 +61,12 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
 
       if (topPosition > -2000 && !reachedTop.current)
         continueTop()
+
+      if (bottomPosition > 5000)
+        removeFromBottom()
+
+      if (topPosition < -5000)
+        removeFromTop()
     })
   }, [])
 
