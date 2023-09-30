@@ -72,7 +72,7 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
 
   return (
     <>
-      <DiffLoader/>
+      <DiffLoader hidden={reachedTop.current || renderFiles.length === 0}/>
       <div ref={topRef} style={{ height: 1 }}/>
       {renderFiles.map(renderFile => (
         <div key={`${renderFile.path}-${renderFile.content.length}`}>
@@ -80,7 +80,7 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
         </div>
       ))}
       <div ref={bottomRef} style={{ height: 1 }}/>
-      <DiffLoader/>
+      <DiffLoader hidden={reachedBottom.current || renderFiles.length === 0}/>
     </>
   )
 }

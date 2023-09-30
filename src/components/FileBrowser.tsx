@@ -7,7 +7,7 @@ interface P {
 
 function FileBrowser(props: P) {
   return (
-      <Group mode="card" style={{top: 10, height: "100%", overflowY: 'auto'}}>
+      <Group mode="card" style={{ top: 10, height: '100%', overflowY: 'auto' }}>
         <Cell>
           <Text>
             {props.files.length} file(s) changed:
@@ -17,7 +17,7 @@ function FileBrowser(props: P) {
         {props.files.map(f =>
           <Cell key={f.path}>
             <Text>{f.path}</Text>
-          </Cell>
+          </Cell>,
         )}
       </Group>
   )
