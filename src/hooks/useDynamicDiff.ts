@@ -115,8 +115,7 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
 
     const isTopReached = lines[0].index === 1
     const isBottomReached = lines[lines.length - 1].index === meta.lines
-    // setReachedTop(isTopReached)
-    // setReachedBottom(isBottomReached)
+
     reachedTop.current = isTopReached
     reachedBottom.current = isBottomReached
 
