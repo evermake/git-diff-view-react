@@ -1,790 +1,1056 @@
 {
-  "totalLines": 186,
-  "files": [
-    {
-      "path": "package.json",
-      "isBinary": false,
-      "diffStart": 1,
-      "diffEnd": 10
-    },
-    {
-      "path": "pnpm-lock.yaml",
-      "isBinary": false,
-      "diffStart": 11,
-      "diffEnd": 116
-    },
-    {
-      "path": "src/App.tsx",
-      "isBinary": false,
-      "diffStart": 117,
-      "diffEnd": 135
-    },
-    {
-      "path": "src/main.tsx",
-      "isBinary": false,
-      "diffStart": 136,
-      "diffEnd": 149
-    },
-    {
-      "path": "src/routes/Diff.tsx",
-      "isBinary": false,
-      "diffStart": 150,
-      "diffEnd": 186
-    }
-  ],
-  "lines": [
-    {
-      "type": "not-modified",
-      "content": "  \"dependencies\": {"
-    },
-    {
-      "type": "not-modified",
-      "content": "    \"@vkontakte/icons\": \"^2.69.0\","
-    },
-    {
-      "type": "not-modified",
-      "content": "    \"@vkontakte/vkui\": \"^5.8.2\","
-    },
-    {
-      "type": "added",
-      "content": "    \"query-string\": \"^8.1.0\","
-    },
-    {
-      "type": "not-modified",
-      "content": "    \"react\": \"^18.2.0\","
-    },
-    {
-      "type": "modified",
-      "oldContent": "    \"react-dom\": \"^18.2.0\"",
-      "newContent": "    \"react-dom\": \"^18.2.0\","
-    },
-    {
-      "type": "added",
-      "content": "    \"react-router-dom\": \"^6.16.0\""
-    },
-    {
-      "type": "not-modified",
-      "content": "  },"
-    },
-    {
-      "type": "not-modified",
-      "content": "  \"devDependencies\": {"
-    },
-    {
-      "type": "not-modified",
-      "content": "    \"@antfu/eslint-config\": \"1.0.0-beta.17\","
-    },
-    {
-      "type": "not-modified",
-      "content": "  '@vkontakte/vkui':"
-    },
-    {
-      "type": "not-modified",
-      "content": "    specifier: ^5.8.2"
-    },
-    {
-      "type": "not-modified",
-      "content": "    version: 5.8.2(@vkontakte/vk-bridge@2.11.2)(react-dom@18.2.0)(react@18.2.0)"
-    },
-    {
-      "type": "added",
-      "content": "  query-string:"
-    },
-    {
-      "type": "added",
-      "content": "    specifier: ^8.1.0"
-    },
-    {
-      "type": "added",
-      "content": "    version: 8.1.0"
-    },
-    {
-      "type": "not-modified",
-      "content": "  react:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    specifier: ^18.2.0"
-    },
-    {
-      "type": "not-modified",
-      "content": "    version: 18.2.0"
-    },
-    {
-      "type": "not-modified",
-      "content": "  react-dom:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    specifier: ^18.2.0"
-    },
-    {
-      "type": "not-modified",
-      "content": "    version: 18.2.0(react@18.2.0)"
-    },
-    {
-      "type": "added",
-      "content": "  react-router-dom:"
-    },
-    {
-      "type": "added",
-      "content": "    specifier: ^6.16.0"
-    },
-    {
-      "type": "added",
-      "content": "    version: 6.16.0(react-dom@18.2.0)(react@18.2.0)"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "devDependencies:"
-    },
-    {
-      "type": "not-modified",
-      "content": "  '@antfu/eslint-config':"
-    },
-    {
-      "type": "not-modified",
-      "content": "      fastq: 1.15.0"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /@remix-run/router@1.9.0:"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-bV63itrKBC0zdT27qYm6SDZHlkXwFL1xMBuhkn+X7l0+IIhNaH5wuuvZKp6eKhCD4KFhujhfhCT1YxXW6esUIA==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=14.0.0'}"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  /@sinclair/typebox@0.27.8:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": "      ms: 2.1.2"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /decode-uri-component@0.4.1:"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-+8VxcR21HhTy8nOt6jf20w0c9CADrw1O8d+VZ/YzzCt4bJ3uBjw+D1q2osAB8RnpwwaeYBxy0HyKQxD5JBMuuQ==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=14.16'}"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  /deep-eql@4.1.3:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-WaEtAOpRA1MQ0eohqZjpGD8zdI0Ovsm8mmFhaDN8dvDZzyoUMcYDnf5Y6iu7HTXxf8JDS23qWa4a+hKCDyOPzw==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    engines: {node: '>=6'}"
-    },
-    {
-      "type": "not-modified",
-      "content": "      to-regex-range: 5.0.1"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /filter-obj@5.1.0:"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-qWeTREPoT7I0bifpPUXtxkZJ1XJzxWtfoWWkdVGqa+eCr3SHW/Ocp89o8vLvbUuQnadybJpjOKu4V+RwO6sGng==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=14.16'}"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  /find-up@4.1.0:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    engines: {node: '>=8'}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    engines: {node: '>=6'}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /query-string@8.1.0:"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-BFQeWxJOZxZGix7y+SByG3F36dA0AbTy9o6pSmKFcFz7DAj0re9Frkty3saBn3nHo3D0oZJ/+rx3r8H8r8Jbpw==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=14.16'}"
-    },
-    {
-      "type": "added",
-      "content": "    dependencies:"
-    },
-    {
-      "type": "added",
-      "content": "      decode-uri-component: 0.4.1"
-    },
-    {
-      "type": "added",
-      "content": "      filter-obj: 5.1.0"
-    },
-    {
-      "type": "added",
-      "content": "      split-on-first: 3.0.0"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  /queue-microtask@1.2.3:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": "    engines: {node: '>=0.10.0'}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /react-router-dom@6.16.0(react-dom@18.2.0)(react@18.2.0):"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-aTfBLv3mk/gaKLxgRDUPbPw+s4Y/O+ma3rEN1u8EgEpLpPe6gNjIsWt9rxushMHHMb7mSwxRGdGlGdvmFsyPIg==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=14.0.0'}"
-    },
-    {
-      "type": "added",
-      "content": "    peerDependencies:"
-    },
-    {
-      "type": "added",
-      "content": "      react: '>=16.8'"
-    },
-    {
-      "type": "added",
-      "content": "      react-dom: '>=16.8'"
-    },
-    {
-      "type": "added",
-      "content": "    dependencies:"
-    },
-    {
-      "type": "added",
-      "content": "      '@remix-run/router': 1.9.0"
-    },
-    {
-      "type": "added",
-      "content": "      react: 18.2.0"
-    },
-    {
-      "type": "added",
-      "content": "      react-dom: 18.2.0(react@18.2.0)"
-    },
-    {
-      "type": "added",
-      "content": "      react-router: 6.16.0(react@18.2.0)"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /react-router@6.16.0(react@18.2.0):"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-VT4Mmc4jj5YyjpOi5jOf0I+TYzGpvzERy4ckNSvSh2RArv8LLoCxlsZ2D+tc7zgjxcY34oTz2hZaeX5RVprKqA==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=14.0.0'}"
-    },
-    {
-      "type": "added",
-      "content": "    peerDependencies:"
-    },
-    {
-      "type": "added",
-      "content": "      react: '>=16.8'"
-    },
-    {
-      "type": "added",
-      "content": "    dependencies:"
-    },
-    {
-      "type": "added",
-      "content": "      '@remix-run/router': 1.9.0"
-    },
-    {
-      "type": "added",
-      "content": "      react: 18.2.0"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  /react@18.2.0:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    engines: {node: '>=0.10.0'}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-lpT8hSQp9jAKp9mhtBU4Xjon8LPGBvLIuBiSVhMEtmLecTh2mO0tlqrAMp47tBXzMr13NJMQ2lf7RpQGLJ3HsQ==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  /split-on-first@3.0.0:"
-    },
-    {
-      "type": "added",
-      "content": "    resolution: {integrity: sha512-qxQJTx2ryR0Dw0ITYyekNQWpz6f8dGd7vffGNflQQ3Iqj9NJ6qiZ7ELpZsJ/QBhIVAiDfXdag3+Gp8RvWa62AA==}"
-    },
-    {
-      "type": "added",
-      "content": "    engines: {node: '>=12'}"
-    },
-    {
-      "type": "added",
-      "content": "    dev: false"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  /stackback@0.0.2:"
-    },
-    {
-      "type": "not-modified",
-      "content": "    resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}"
-    },
-    {
-      "type": "not-modified",
-      "content": "    dev: true"
-    },
-    {
-      "type": "modified",
-      "oldContent": "import { AdaptivityProvider, Button, ConfigProvider, useAppearance } from '@vkontakte/vkui'",
-      "newContent": "import { Route, Routes } from 'react-router-dom'"
-    },
-    {
-      "type": "added",
-      "content": "import Diff from './routes/Diff'"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "function App() {"
-    },
-    {
-      "type": "deleted",
-      "content": "  const appearance = useAppearance()"
-    },
-    {
-      "type": "deleted",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "  return ("
-    },
-    {
-      "type": "modified",
-      "oldContent": "    <ConfigProvider",
-      "newContent": "    <>"
-    },
-    {
-      "type": "modified",
-      "oldContent": "      platform=\"vkcom\"",
-      "newContent": "      <Routes>"
-    },
-    {
-      "type": "modified",
-      "oldContent": "      appearance={appearance}",
-      "newContent": "        <Route path=\"/\" element={<Diff />} />"
-    },
-    {
-      "type": "modified",
-      "oldContent": "      isWebView={false}",
-      "newContent": "        <Route path=\"*\" element={<>No such route on frontend</>} />"
-    },
-    {
-      "type": "modified",
-      "oldContent": "    >",
-      "newContent": "      </Routes>"
-    },
-    {
-      "type": "modified",
-      "oldContent": "      <AdaptivityProvider>",
-      "newContent": "    </>"
-    },
-    {
-      "type": "deleted",
-      "content": "        <Button>Hello</Button>"
-    },
-    {
-      "type": "deleted",
-      "content": "      </AdaptivityProvider>"
-    },
-    {
-      "type": "deleted",
-      "content": "    </ConfigProvider>"
-    },
-    {
-      "type": "not-modified",
-      "content": "  )"
-    },
-    {
-      "type": "not-modified",
-      "content": "}"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "import React from 'react'"
-    },
-    {
-      "type": "not-modified",
-      "content": "import ReactDOM from 'react-dom/client'"
-    },
-    {
-      "type": "added",
-      "content": "import { BrowserRouter } from 'react-router-dom'"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "import '@vkontakte/vkui/dist/vkui.css'"
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": ""
-    },
-    {
-      "type": "not-modified",
-      "content": "ReactDOM.createRoot(document.getElementById('root')!).render("
-    },
-    {
-      "type": "not-modified",
-      "content": "  <React.StrictMode>"
-    },
-    {
-      "type": "modified",
-      "oldContent": "    <App/>",
-      "newContent": "    <BrowserRouter>"
-    },
-    {
-      "type": "added",
-      "content": "      <App/>"
-    },
-    {
-      "type": "added",
-      "content": "    </BrowserRouter>"
-    },
-    {
-      "type": "not-modified",
-      "content": "  </React.StrictMode>,"
-    },
-    {
-      "type": "not-modified",
-      "content": ")"
-    },
-    {
-      "type": "added",
-      "content": "import { AdaptivityProvider, ConfigProvider, SimpleCell, useAppearance } from '@vkontakte/vkui'"
-    },
-    {
-      "type": "added",
-      "content": "import { useLocation } from 'react-router-dom'"
-    },
-    {
-      "type": "added",
-      "content": "import queryString from 'query-string'"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "function Diff() {"
-    },
-    {
-      "type": "added",
-      "content": "  const appearance = useAppearance()"
-    },
-    {
-      "type": "added",
-      "content": "  const query = queryString.parse(useLocation().search)"
-    },
-    {
-      "type": "added",
-      "content": "  const commitHash1 = query.a"
-    },
-    {
-      "type": "added",
-      "content": "  const commitHash2 = query.b"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  const commitHashesProvided = !!(commitHash1 && commitHash2)"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "  return ("
-    },
-    {
-      "type": "added",
-      "content": "    <ConfigProvider"
-    },
-    {
-      "type": "added",
-      "content": "      platform=\"vkcom\""
-    },
-    {
-      "type": "added",
-      "content": "      appearance={appearance}"
-    },
-    {
-      "type": "added",
-      "content": "      isWebView={false}"
-    },
-    {
-      "type": "added",
-      "content": "    >"
-    },
-    {
-      "type": "added",
-      "content": "      <AdaptivityProvider>"
-    },
-    {
-      "type": "added",
-      "content": "        {!commitHashesProvided"
-    },
-    {
-      "type": "added",
-      "content": "          && <>"
-    },
-    {
-      "type": "added",
-      "content": "            <SimpleCell>Please provide commit hashes in query like so:</SimpleCell>"
-    },
-    {
-      "type": "added",
-      "content": "            <SimpleCell>http://localhost:5173/?a=commitHash1&b=commitHash2</SimpleCell>"
-    },
-    {
-      "type": "added",
-      "content": "          </>"
-    },
-    {
-      "type": "added",
-      "content": "        }"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "        {commitHashesProvided"
-    },
-    {
-      "type": "added",
-      "content": "          && <>"
-    },
-    {
-      "type": "added",
-      "content": "            <SimpleCell>Comparing {commitHash1} and {commitHash2}</SimpleCell>"
-    },
-    {
-      "type": "added",
-      "content": "          </>"
-    },
-    {
-      "type": "added",
-      "content": "        }"
-    },
-    {
-      "type": "added",
-      "content": "      </AdaptivityProvider>"
-    },
-    {
-      "type": "added",
-      "content": "    </ConfigProvider>"
-    },
-    {
-      "type": "added",
-      "content": "  )"
-    },
-    {
-      "type": "added",
-      "content": "}"
-    },
-    {
-      "type": "added",
-      "content": ""
-    },
-    {
-      "type": "added",
-      "content": "export default Diff"
-    }
-  ]
+    "totalLines": 186,
+    "files": [
+        {
+            "path": "package.json",
+            "isBinary": false,
+            "diffStart": 1,
+            "diffEnd": 10
+        },
+        {
+            "path": "pnpm-lock.yaml",
+            "isBinary": false,
+            "diffStart": 11,
+            "diffEnd": 116
+        },
+        {
+            "path": "src/App.tsx",
+            "isBinary": false,
+            "diffStart": 117,
+            "diffEnd": 135
+        },
+        {
+            "path": "src/main.tsx",
+            "isBinary": false,
+            "diffStart": 136,
+            "diffEnd": 149
+        },
+        {
+            "path": "src/routes/Diff.tsx",
+            "isBinary": false,
+            "diffStart": 150,
+            "diffEnd": 186
+        }
+    ],
+    "lines": [
+        {
+            "type": "not-modified",
+            "content": "  \"dependencies\": {",
+            "oldLineNo": "13",
+            "newLineNo": "13"
+        },
+        {
+            "type": "not-modified",
+            "content": "    \"@vkontakte/icons\": \"^2.69.0\",",
+            "oldLineNo": "14",
+            "newLineNo": "14"
+        },
+        {
+            "type": "not-modified",
+            "content": "    \"@vkontakte/vkui\": \"^5.8.2\",",
+            "oldLineNo": "15",
+            "newLineNo": "15"
+        },
+        {
+            "type": "added",
+            "content": "    \"query-string\": \"^8.1.0\",",
+            "lineNo": "16"
+        },
+        {
+            "type": "not-modified",
+            "content": "    \"react\": \"^18.2.0\",",
+            "oldLineNo": "16",
+            "newLineNo": "17"
+        },
+        {
+            "type": "modified",
+            "oldContent": "    \"react-dom\": \"^18.2.0\"",
+            "newContent": "    \"react-dom\": \"^18.2.0\",",
+            "oldLineNo": "17",
+            "newLineNo": "18"
+        },
+        {
+            "type": "added",
+            "content": "    \"react-router-dom\": \"^6.16.0\"",
+            "lineNo": "19"
+        },
+        {
+            "type": "not-modified",
+            "content": "  },",
+            "oldLineNo": "18",
+            "newLineNo": "20"
+        },
+        {
+            "type": "not-modified",
+            "content": "  \"devDependencies\": {",
+            "oldLineNo": "19",
+            "newLineNo": "21"
+        },
+        {
+            "type": "not-modified",
+            "content": "    \"@antfu/eslint-config\": \"1.0.0-beta.17\",",
+            "oldLineNo": "20",
+            "newLineNo": "22"
+        },
+        {
+            "type": "not-modified",
+            "content": "  '@vkontakte/vkui':",
+            "oldLineNo": "11",
+            "newLineNo": "11"
+        },
+        {
+            "type": "not-modified",
+            "content": "    specifier: ^5.8.2",
+            "oldLineNo": "12",
+            "newLineNo": "12"
+        },
+        {
+            "type": "not-modified",
+            "content": "    version: 5.8.2(@vkontakte/vk-bridge@2.11.2)(react-dom@18.2.0)(react@18.2.0)",
+            "oldLineNo": "13",
+            "newLineNo": "13"
+        },
+        {
+            "type": "added",
+            "content": "  query-string:",
+            "lineNo": "14"
+        },
+        {
+            "type": "added",
+            "content": "    specifier: ^8.1.0",
+            "lineNo": "15"
+        },
+        {
+            "type": "added",
+            "content": "    version: 8.1.0",
+            "lineNo": "16"
+        },
+        {
+            "type": "not-modified",
+            "content": "  react:",
+            "oldLineNo": "14",
+            "newLineNo": "17"
+        },
+        {
+            "type": "not-modified",
+            "content": "    specifier: ^18.2.0",
+            "oldLineNo": "15",
+            "newLineNo": "18"
+        },
+        {
+            "type": "not-modified",
+            "content": "    version: 18.2.0",
+            "oldLineNo": "16",
+            "newLineNo": "19"
+        },
+        {
+            "type": "not-modified",
+            "content": "  react-dom:",
+            "oldLineNo": "17",
+            "newLineNo": "20"
+        },
+        {
+            "type": "not-modified",
+            "content": "    specifier: ^18.2.0",
+            "oldLineNo": "18",
+            "newLineNo": "21"
+        },
+        {
+            "type": "not-modified",
+            "content": "    version: 18.2.0(react@18.2.0)",
+            "oldLineNo": "19",
+            "newLineNo": "22"
+        },
+        {
+            "type": "added",
+            "content": "  react-router-dom:",
+            "lineNo": "23"
+        },
+        {
+            "type": "added",
+            "content": "    specifier: ^6.16.0",
+            "lineNo": "24"
+        },
+        {
+            "type": "added",
+            "content": "    version: 6.16.0(react-dom@18.2.0)(react@18.2.0)",
+            "lineNo": "25"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "20",
+            "newLineNo": "26"
+        },
+        {
+            "type": "not-modified",
+            "content": "devDependencies:",
+            "oldLineNo": "21",
+            "newLineNo": "27"
+        },
+        {
+            "type": "not-modified",
+            "content": "  '@antfu/eslint-config':",
+            "oldLineNo": "22",
+            "newLineNo": "28"
+        },
+        {
+            "type": "not-modified",
+            "content": "      fastq: 1.15.0",
+            "oldLineNo": "671",
+            "newLineNo": "677"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "672",
+            "newLineNo": "678"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "673",
+            "newLineNo": "679"
+        },
+        {
+            "type": "added",
+            "content": "  /@remix-run/router@1.9.0:",
+            "lineNo": "680"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-bV63itrKBC0zdT27qYm6SDZHlkXwFL1xMBuhkn+X7l0+IIhNaH5wuuvZKp6eKhCD4KFhujhfhCT1YxXW6esUIA==}",
+            "lineNo": "681"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=14.0.0'}",
+            "lineNo": "682"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "683"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "684"
+        },
+        {
+            "type": "not-modified",
+            "content": "  /@sinclair/typebox@0.27.8:",
+            "oldLineNo": "674",
+            "newLineNo": "685"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}",
+            "oldLineNo": "675",
+            "newLineNo": "686"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "676",
+            "newLineNo": "687"
+        },
+        {
+            "type": "not-modified",
+            "content": "      ms: 2.1.2",
+            "oldLineNo": "1308",
+            "newLineNo": "1319"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "1309",
+            "newLineNo": "1320"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "1310",
+            "newLineNo": "1321"
+        },
+        {
+            "type": "added",
+            "content": "  /decode-uri-component@0.4.1:",
+            "lineNo": "1322"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-+8VxcR21HhTy8nOt6jf20w0c9CADrw1O8d+VZ/YzzCt4bJ3uBjw+D1q2osAB8RnpwwaeYBxy0HyKQxD5JBMuuQ==}",
+            "lineNo": "1323"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=14.16'}",
+            "lineNo": "1324"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "1325"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "1326"
+        },
+        {
+            "type": "not-modified",
+            "content": "  /deep-eql@4.1.3:",
+            "oldLineNo": "1311",
+            "newLineNo": "1327"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-WaEtAOpRA1MQ0eohqZjpGD8zdI0Ovsm8mmFhaDN8dvDZzyoUMcYDnf5Y6iu7HTXxf8JDS23qWa4a+hKCDyOPzw==}",
+            "oldLineNo": "1312",
+            "newLineNo": "1328"
+        },
+        {
+            "type": "not-modified",
+            "content": "    engines: {node: '>=6'}",
+            "oldLineNo": "1313",
+            "newLineNo": "1329"
+        },
+        {
+            "type": "not-modified",
+            "content": "      to-regex-range: 5.0.1",
+            "oldLineNo": "1821",
+            "newLineNo": "1837"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "1822",
+            "newLineNo": "1838"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "1823",
+            "newLineNo": "1839"
+        },
+        {
+            "type": "added",
+            "content": "  /filter-obj@5.1.0:",
+            "lineNo": "1840"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-qWeTREPoT7I0bifpPUXtxkZJ1XJzxWtfoWWkdVGqa+eCr3SHW/Ocp89o8vLvbUuQnadybJpjOKu4V+RwO6sGng==}",
+            "lineNo": "1841"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=14.16'}",
+            "lineNo": "1842"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "1843"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "1844"
+        },
+        {
+            "type": "not-modified",
+            "content": "  /find-up@4.1.0:",
+            "oldLineNo": "1824",
+            "newLineNo": "1845"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}",
+            "oldLineNo": "1825",
+            "newLineNo": "1846"
+        },
+        {
+            "type": "not-modified",
+            "content": "    engines: {node: '>=8'}",
+            "oldLineNo": "1826",
+            "newLineNo": "1847"
+        },
+        {
+            "type": "not-modified",
+            "content": "    engines: {node: '>=6'}",
+            "oldLineNo": "2473",
+            "newLineNo": "2494"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "2474",
+            "newLineNo": "2495"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "2475",
+            "newLineNo": "2496"
+        },
+        {
+            "type": "added",
+            "content": "  /query-string@8.1.0:",
+            "lineNo": "2497"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-BFQeWxJOZxZGix7y+SByG3F36dA0AbTy9o6pSmKFcFz7DAj0re9Frkty3saBn3nHo3D0oZJ/+rx3r8H8r8Jbpw==}",
+            "lineNo": "2498"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=14.16'}",
+            "lineNo": "2499"
+        },
+        {
+            "type": "added",
+            "content": "    dependencies:",
+            "lineNo": "2500"
+        },
+        {
+            "type": "added",
+            "content": "      decode-uri-component: 0.4.1",
+            "lineNo": "2501"
+        },
+        {
+            "type": "added",
+            "content": "      filter-obj: 5.1.0",
+            "lineNo": "2502"
+        },
+        {
+            "type": "added",
+            "content": "      split-on-first: 3.0.0",
+            "lineNo": "2503"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "2504"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "2505"
+        },
+        {
+            "type": "not-modified",
+            "content": "  /queue-microtask@1.2.3:",
+            "oldLineNo": "2476",
+            "newLineNo": "2506"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}",
+            "oldLineNo": "2477",
+            "newLineNo": "2507"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "2478",
+            "newLineNo": "2508"
+        },
+        {
+            "type": "not-modified",
+            "content": "    engines: {node: '>=0.10.0'}",
+            "oldLineNo": "2496",
+            "newLineNo": "2526"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "2497",
+            "newLineNo": "2527"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "2498",
+            "newLineNo": "2528"
+        },
+        {
+            "type": "added",
+            "content": "  /react-router-dom@6.16.0(react-dom@18.2.0)(react@18.2.0):",
+            "lineNo": "2529"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-aTfBLv3mk/gaKLxgRDUPbPw+s4Y/O+ma3rEN1u8EgEpLpPe6gNjIsWt9rxushMHHMb7mSwxRGdGlGdvmFsyPIg==}",
+            "lineNo": "2530"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=14.0.0'}",
+            "lineNo": "2531"
+        },
+        {
+            "type": "added",
+            "content": "    peerDependencies:",
+            "lineNo": "2532"
+        },
+        {
+            "type": "added",
+            "content": "      react: '>=16.8'",
+            "lineNo": "2533"
+        },
+        {
+            "type": "added",
+            "content": "      react-dom: '>=16.8'",
+            "lineNo": "2534"
+        },
+        {
+            "type": "added",
+            "content": "    dependencies:",
+            "lineNo": "2535"
+        },
+        {
+            "type": "added",
+            "content": "      '@remix-run/router': 1.9.0",
+            "lineNo": "2536"
+        },
+        {
+            "type": "added",
+            "content": "      react: 18.2.0",
+            "lineNo": "2537"
+        },
+        {
+            "type": "added",
+            "content": "      react-dom: 18.2.0(react@18.2.0)",
+            "lineNo": "2538"
+        },
+        {
+            "type": "added",
+            "content": "      react-router: 6.16.0(react@18.2.0)",
+            "lineNo": "2539"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "2540"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "2541"
+        },
+        {
+            "type": "added",
+            "content": "  /react-router@6.16.0(react@18.2.0):",
+            "lineNo": "2542"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-VT4Mmc4jj5YyjpOi5jOf0I+TYzGpvzERy4ckNSvSh2RArv8LLoCxlsZ2D+tc7zgjxcY34oTz2hZaeX5RVprKqA==}",
+            "lineNo": "2543"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=14.0.0'}",
+            "lineNo": "2544"
+        },
+        {
+            "type": "added",
+            "content": "    peerDependencies:",
+            "lineNo": "2545"
+        },
+        {
+            "type": "added",
+            "content": "      react: '>=16.8'",
+            "lineNo": "2546"
+        },
+        {
+            "type": "added",
+            "content": "    dependencies:",
+            "lineNo": "2547"
+        },
+        {
+            "type": "added",
+            "content": "      '@remix-run/router': 1.9.0",
+            "lineNo": "2548"
+        },
+        {
+            "type": "added",
+            "content": "      react: 18.2.0",
+            "lineNo": "2549"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "2550"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "2551"
+        },
+        {
+            "type": "not-modified",
+            "content": "  /react@18.2.0:",
+            "oldLineNo": "2499",
+            "newLineNo": "2552"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}",
+            "oldLineNo": "2500",
+            "newLineNo": "2553"
+        },
+        {
+            "type": "not-modified",
+            "content": "    engines: {node: '>=0.10.0'}",
+            "oldLineNo": "2501",
+            "newLineNo": "2554"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-lpT8hSQp9jAKp9mhtBU4Xjon8LPGBvLIuBiSVhMEtmLecTh2mO0tlqrAMp47tBXzMr13NJMQ2lf7RpQGLJ3HsQ==}",
+            "oldLineNo": "2650",
+            "newLineNo": "2703"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "2651",
+            "newLineNo": "2704"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "2652",
+            "newLineNo": "2705"
+        },
+        {
+            "type": "added",
+            "content": "  /split-on-first@3.0.0:",
+            "lineNo": "2706"
+        },
+        {
+            "type": "added",
+            "content": "    resolution: {integrity: sha512-qxQJTx2ryR0Dw0ITYyekNQWpz6f8dGd7vffGNflQQ3Iqj9NJ6qiZ7ELpZsJ/QBhIVAiDfXdag3+Gp8RvWa62AA==}",
+            "lineNo": "2707"
+        },
+        {
+            "type": "added",
+            "content": "    engines: {node: '>=12'}",
+            "lineNo": "2708"
+        },
+        {
+            "type": "added",
+            "content": "    dev: false",
+            "lineNo": "2709"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "2710"
+        },
+        {
+            "type": "not-modified",
+            "content": "  /stackback@0.0.2:",
+            "oldLineNo": "2653",
+            "newLineNo": "2711"
+        },
+        {
+            "type": "not-modified",
+            "content": "    resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}",
+            "oldLineNo": "2654",
+            "newLineNo": "2712"
+        },
+        {
+            "type": "not-modified",
+            "content": "    dev: true",
+            "oldLineNo": "2655",
+            "newLineNo": "2713"
+        },
+        {
+            "type": "modified",
+            "oldContent": "import { AdaptivityProvider, Button, ConfigProvider, useAppearance } from '@vkontakte/vkui'",
+            "newContent": "import { Route, Routes } from 'react-router-dom'",
+            "oldLineNo": "1",
+            "newLineNo": "1"
+        },
+        {
+            "type": "added",
+            "content": "import Diff from './routes/Diff'",
+            "lineNo": "2"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "2",
+            "newLineNo": "3"
+        },
+        {
+            "type": "not-modified",
+            "content": "function App() {",
+            "oldLineNo": "3",
+            "newLineNo": "4"
+        },
+        {
+            "type": "deleted",
+            "content": "  const appearance = useAppearance()",
+            "lineNo": "4"
+        },
+        {
+            "type": "deleted",
+            "content": "",
+            "lineNo": "5"
+        },
+        {
+            "type": "not-modified",
+            "content": "  return (",
+            "oldLineNo": "6",
+            "newLineNo": "5"
+        },
+        {
+            "type": "modified",
+            "oldContent": "    <ConfigProvider",
+            "newContent": "    <>",
+            "oldLineNo": "7",
+            "newLineNo": "6"
+        },
+        {
+            "type": "modified",
+            "oldContent": "      platform=\"vkcom\"",
+            "newContent": "      <Routes>",
+            "oldLineNo": "8",
+            "newLineNo": "7"
+        },
+        {
+            "type": "modified",
+            "oldContent": "      appearance={appearance}",
+            "newContent": "        <Route path=\"/\" element={<Diff />} />",
+            "oldLineNo": "9",
+            "newLineNo": "8"
+        },
+        {
+            "type": "modified",
+            "oldContent": "      isWebView={false}",
+            "newContent": "        <Route path=\"*\" element={<>No such route on frontend</>} />",
+            "oldLineNo": "10",
+            "newLineNo": "9"
+        },
+        {
+            "type": "modified",
+            "oldContent": "    >",
+            "newContent": "      </Routes>",
+            "oldLineNo": "11",
+            "newLineNo": "10"
+        },
+        {
+            "type": "modified",
+            "oldContent": "      <AdaptivityProvider>",
+            "newContent": "    </>",
+            "oldLineNo": "12",
+            "newLineNo": "11"
+        },
+        {
+            "type": "deleted",
+            "content": "        <Button>Hello</Button>",
+            "lineNo": "13"
+        },
+        {
+            "type": "deleted",
+            "content": "      </AdaptivityProvider>",
+            "lineNo": "14"
+        },
+        {
+            "type": "deleted",
+            "content": "    </ConfigProvider>",
+            "lineNo": "15"
+        },
+        {
+            "type": "not-modified",
+            "content": "  )",
+            "oldLineNo": "16",
+            "newLineNo": "12"
+        },
+        {
+            "type": "not-modified",
+            "content": "}",
+            "oldLineNo": "17",
+            "newLineNo": "13"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "18",
+            "newLineNo": "14"
+        },
+        {
+            "type": "not-modified",
+            "content": "import React from 'react'",
+            "oldLineNo": "1",
+            "newLineNo": "1"
+        },
+        {
+            "type": "not-modified",
+            "content": "import ReactDOM from 'react-dom/client'",
+            "oldLineNo": "2",
+            "newLineNo": "2"
+        },
+        {
+            "type": "added",
+            "content": "import { BrowserRouter } from 'react-router-dom'",
+            "lineNo": "3"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "3",
+            "newLineNo": "4"
+        },
+        {
+            "type": "not-modified",
+            "content": "import '@vkontakte/vkui/dist/vkui.css'",
+            "oldLineNo": "4",
+            "newLineNo": "5"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "5",
+            "newLineNo": "6"
+        },
+        {
+            "type": "not-modified",
+            "content": "",
+            "oldLineNo": "8",
+            "newLineNo": "9"
+        },
+        {
+            "type": "not-modified",
+            "content": "ReactDOM.createRoot(document.getElementById('root')!).render(",
+            "oldLineNo": "9",
+            "newLineNo": "10"
+        },
+        {
+            "type": "not-modified",
+            "content": "  <React.StrictMode>",
+            "oldLineNo": "10",
+            "newLineNo": "11"
+        },
+        {
+            "type": "modified",
+            "oldContent": "    <App/>",
+            "newContent": "    <BrowserRouter>",
+            "oldLineNo": "11",
+            "newLineNo": "12"
+        },
+        {
+            "type": "added",
+            "content": "      <App/>",
+            "lineNo": "13"
+        },
+        {
+            "type": "added",
+            "content": "    </BrowserRouter>",
+            "lineNo": "14"
+        },
+        {
+            "type": "not-modified",
+            "content": "  </React.StrictMode>,",
+            "oldLineNo": "12",
+            "newLineNo": "15"
+        },
+        {
+            "type": "not-modified",
+            "content": ")",
+            "oldLineNo": "13",
+            "newLineNo": "16"
+        },
+        {
+            "type": "added",
+            "content": "import { AdaptivityProvider, ConfigProvider, SimpleCell, useAppearance } from '@vkontakte/vkui'",
+            "lineNo": "1"
+        },
+        {
+            "type": "added",
+            "content": "import { useLocation } from 'react-router-dom'",
+            "lineNo": "2"
+        },
+        {
+            "type": "added",
+            "content": "import queryString from 'query-string'",
+            "lineNo": "3"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "4"
+        },
+        {
+            "type": "added",
+            "content": "function Diff() {",
+            "lineNo": "5"
+        },
+        {
+            "type": "added",
+            "content": "  const appearance = useAppearance()",
+            "lineNo": "6"
+        },
+        {
+            "type": "added",
+            "content": "  const query = queryString.parse(useLocation().search)",
+            "lineNo": "7"
+        },
+        {
+            "type": "added",
+            "content": "  const commitHash1 = query.a",
+            "lineNo": "8"
+        },
+        {
+            "type": "added",
+            "content": "  const commitHash2 = query.b",
+            "lineNo": "9"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "10"
+        },
+        {
+            "type": "added",
+            "content": "  const commitHashesProvided = !!(commitHash1 && commitHash2)",
+            "lineNo": "11"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "12"
+        },
+        {
+            "type": "added",
+            "content": "  return (",
+            "lineNo": "13"
+        },
+        {
+            "type": "added",
+            "content": "    <ConfigProvider",
+            "lineNo": "14"
+        },
+        {
+            "type": "added",
+            "content": "      platform=\"vkcom\"",
+            "lineNo": "15"
+        },
+        {
+            "type": "added",
+            "content": "      appearance={appearance}",
+            "lineNo": "16"
+        },
+        {
+            "type": "added",
+            "content": "      isWebView={false}",
+            "lineNo": "17"
+        },
+        {
+            "type": "added",
+            "content": "    >",
+            "lineNo": "18"
+        },
+        {
+            "type": "added",
+            "content": "      <AdaptivityProvider>",
+            "lineNo": "19"
+        },
+        {
+            "type": "added",
+            "content": "        {!commitHashesProvided",
+            "lineNo": "20"
+        },
+        {
+            "type": "added",
+            "content": "          && <>",
+            "lineNo": "21"
+        },
+        {
+            "type": "added",
+            "content": "            <SimpleCell>Please provide commit hashes in query like so:</SimpleCell>",
+            "lineNo": "22"
+        },
+        {
+            "type": "added",
+            "content": "            <SimpleCell>http://localhost:5173/?a=commitHash1&b=commitHash2</SimpleCell>",
+            "lineNo": "23"
+        },
+        {
+            "type": "added",
+            "content": "          </>",
+            "lineNo": "24"
+        },
+        {
+            "type": "added",
+            "content": "        }",
+            "lineNo": "25"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "26"
+        },
+        {
+            "type": "added",
+            "content": "        {commitHashesProvided",
+            "lineNo": "27"
+        },
+        {
+            "type": "added",
+            "content": "          && <>",
+            "lineNo": "28"
+        },
+        {
+            "type": "added",
+            "content": "            <SimpleCell>Comparing {commitHash1} and {commitHash2}</SimpleCell>",
+            "lineNo": "29"
+        },
+        {
+            "type": "added",
+            "content": "          </>",
+            "lineNo": "30"
+        },
+        {
+            "type": "added",
+            "content": "        }",
+            "lineNo": "31"
+        },
+        {
+            "type": "added",
+            "content": "      </AdaptivityProvider>",
+            "lineNo": "32"
+        },
+        {
+            "type": "added",
+            "content": "    </ConfigProvider>",
+            "lineNo": "33"
+        },
+        {
+            "type": "added",
+            "content": "  )",
+            "lineNo": "34"
+        },
+        {
+            "type": "added",
+            "content": "}",
+            "lineNo": "35"
+        },
+        {
+            "type": "added",
+            "content": "",
+            "lineNo": "36"
+        },
+        {
+            "type": "added",
+            "content": "export default Diff",
+            "lineNo": "37"
+        }
+    ]
 }
