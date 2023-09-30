@@ -13,24 +13,23 @@ import {
   SplitLayout,
   Title,
   View,
-  useAppearance,
 } from '@vkontakte/vkui'
 import { Icon28ListOutline, Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
 import { useEffect, useState } from 'react'
+import { useLocalStorage } from '@uidotdev/usehooks'
 import ExpandableFileBrowser from '../components/ExpandableFileBrowser'
+import FileDiffList from '../components/FileDiffList'
 import type { DiffInfo } from '../api/api'
 import { MockDiff } from '../api/mock'
-import { useLocalStorage } from '@uidotdev/usehooks'
-import FileDiffList from '../components/FileDiffList'
 
 function Diff() {
   const [showFileBrowser, setShowFileBrowser] = useState(true)
   const [diffInfo, setDiffInfo] = useState<DiffInfo | null>(null)
   const [api, _] = useState(() => new MockDiff())
 
-  const [appearance, setAppearance] = useLocalStorage("theme", "dark")
+  const [appearance, setAppearance] = useLocalStorage('theme', 'dark')
   const platform: PlatformType = 'vkcom'
 
   const query = queryString.parse(useLocation().search)
@@ -46,7 +45,7 @@ function Diff() {
   return (
     <ConfigProvider
       platform={platform}
-      appearance={appearance  === "dark" ? "dark" : "light"}
+      appearance={appearance === 'dark' ? 'dark' : 'light'}
       isWebView={false}
       hasCustomPanelHeaderAfter={false}
     >
@@ -59,7 +58,21 @@ function Diff() {
                 <SplitCol>
                   <View activePanel='panel'>
                     <Panel id='panel'>
-                      <PanelHeader before={<PanelHeaderButton onClick={() => setShowFileBrowser(!showFileBrowser)}> <Icon28ListOutline/> </PanelHeaderButton>} visor={true}>
+                      <PanelHeader
+                        before={(
+                          <PanelHeaderButton onClick={() => setShowFileBrowser(!showFileBrowser)}>
+                            <Icon28ListOutline/>
+                          </PanelHeaderButton>
+                        )}
+                        visor={true}
+                        after={(
+                          <PanelHeaderButton
+                            onClick={() => setAppearance(appearance === 'dark' ? 'light' : 'dark')}
+                          >
+                            {appearance === 'dark' ? <Icon28SunOutline/> : <Icon28MoonOutline/>}
+                          </PanelHeaderButton>
+                        )}
+                      >
                         <Title>Comparing {hashA} and {hashB}</Title>
                       </PanelHeader>
                       {diffInfo
