@@ -72,6 +72,7 @@ function FileHeader(props: FileHeaderProps) {
       <div className={styles['header-left']}>
         <IconButton
           onClick={props.onCollapseClick}
+          aria-label='Скрыть/показать содержимое файла'
         >
           <Icon16Chevron
             width={16}

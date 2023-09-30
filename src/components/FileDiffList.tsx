@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import type { DiffApi, DiffId, DiffInfo } from '../api/api'
 import useDynamicDiff from '../hooks/useDynamicDiff'
 import FileDiff from './FileDiffs/FileDiff'
+import DiffLoader from './DiffLoader'
 
 interface P {
   diffId: DiffId
@@ -71,6 +72,7 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
 
   return (
     <>
+      <DiffLoader/>
       <div ref={topRef} style={{ height: 1 }}/>
       {renderFiles.map(renderFile => (
         <div key={`${renderFile.path}-${renderFile.content.length}`}>
@@ -78,6 +80,7 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
         </div>
       ))}
       <div ref={bottomRef} style={{ height: 1 }}/>
+      <DiffLoader/>
     </>
   )
 }
