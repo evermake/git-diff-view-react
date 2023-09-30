@@ -20,16 +20,21 @@ export interface GetDiffLinesParams {
 export type DiffLine =
 {
   type: 'not-modified'
+  lineNo: number
   content: string
 } | {
   type: 'added'
+  lineNo: number
   content: string
 } | {
   type: 'deleted'
+  lineNo: number
   content: string
 } | {
   type: 'modified'
+  oldLineNo: number
   oldContent: string
+  newLineNo: number
   newContent: string
 }
 
