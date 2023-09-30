@@ -51,7 +51,7 @@ function FileDiff({
           )}
         >
           <tbody>
-            {diffs.map(diff => <LineDiff diff={diff} />)}
+            {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
           </tbody>
         </table>
           )
