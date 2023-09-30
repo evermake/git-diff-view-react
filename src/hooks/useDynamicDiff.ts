@@ -30,21 +30,21 @@ class DiffStorage {
     if (startIndex === null || !this.rangeExists(start, end))
       throw new Error('This range of lines is not in the cache')
 
-    let parentRangeStartIndex = startIndex
-    for (let i = startIndex; i >= 0; i--) {
-      if (this.storage[i].index === start - (startIndex - i))
-        parentRangeStartIndex = i
-      else
-        break
-    }
+    const parentRangeStartIndex = startIndex
+    // for (let i = startIndex; i >= 0; i--) {
+    //   if (this.storage[i].index === start - (startIndex - i))
+    //     parentRangeStartIndex = i
+    //   else
+    //     break
+    // }
 
-    let parentRangeEndIndex = startIndex + (end - start)
-    for (let i = startIndex + (end - start); i < this.storage.length; i++) {
-      if (this.storage[i].index === end + (i - (startIndex + (end - start))))
-        parentRangeEndIndex = i
-      else
-        break
-    }
+    const parentRangeEndIndex = startIndex + (end - start)
+    // for (let i = startIndex + (end - start); i < this.storage.length; i++) {
+    //   if (this.storage[i].index === end + (i - (startIndex + (end - start))))
+    //     parentRangeEndIndex = i
+    //   else
+    //     break
+    // }
 
     const res: CachedLine[] = []
     for (let i = parentRangeStartIndex; i <= parentRangeEndIndex; i++)
@@ -168,6 +168,9 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
 
       if (!file.isBinary) {
         while (nextLineIndex < lines.length) {
+          if (lines[nextLineIndex].index < renderRegionStart || lines[nextLineIndex].index > renderRegionEnd)
+            continue
+
           if (lines[nextLineIndex].index <= file.diffEnd) {
             res[res.length - 1].content.push(lines[nextLineIndex].content)
             nextLineIndex++
@@ -187,7 +190,9 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
     if (isBusy)
       return
 
-    requestContent(renderRegionEnd, renderRegionEnd + LINES_IN_PAGE)
+    console.log('Adding to bottom')
+
+    requestContent(renderRegionStart, renderRegionEnd + LINES_IN_PAGE)
       .then(content => updateRenderFiles(content))
   }
 
@@ -195,7 +200,29 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
     if (isBusy)
       return
 
-    requestContent(renderRegionStart - LINES_IN_PAGE, renderRegionStart)
+    console.log('Adding to top')
+
+    requestContent(renderRegionStart - LINES_IN_PAGE, renderRegionEnd)
+      .then(content => updateRenderFiles(content, true))
+  }
+
+  const removeFromBottom = () => {
+    if (isBusy)
+      return
+
+    console.log('Removing from bottom')
+
+    requestContent(renderRegionStart, renderRegionEnd - LINES_IN_PAGE)
+      .then(content => updateRenderFiles(content))
+  }
+
+  const removeFromTop = () => {
+    if (isBusy)
+      return
+
+    console.log('Removing from top')
+
+    requestContent(renderRegionStart + LINES_IN_PAGE, renderRegionEnd)
       .then(content => updateRenderFiles(content, true))
   }
 
@@ -226,7 +253,7 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
       .then(content => updateRenderFiles(content))
   }
 
-  return { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, jumpToFile }
+  return { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, removeFromBottom, removeFromTop, jumpToFile }
 }
 
 export default useDynamicDiff
