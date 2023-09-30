@@ -48,7 +48,6 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
 
   useEffect(() => {
     continueBottom()
-    // jumpToFile('bunsen/bunsen-core-r4/src/main/java/com/cerner/bunsen/definitions/r4/package-info.java')
 
     addEventListener('scroll', (e) => {
       const bottomPosition = bottomRef.current?.getBoundingClientRect().top
@@ -62,10 +61,10 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
       if (topPosition > -2000 && !reachedTop.current)
         continueTop()
 
-      if (bottomPosition > 5000)
+      if (bottomPosition > 7000)
         removeFromBottom()
 
-      if (topPosition < -5000)
+      if (topPosition < -8000)
         removeFromTop()
     })
   }, [])
