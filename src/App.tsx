@@ -1,8 +1,18 @@
+import { AdaptivityProvider, Button, ConfigProvider, useAppearance } from '@vkontakte/vkui'
+
 function App() {
+  const appearance = useAppearance()
+
   return (
-    <>
-      <h1>Hi</h1>
-    </>
+    <ConfigProvider
+      platform="vkcom"
+      appearance={appearance}
+      isWebView={false}
+    >
+      <AdaptivityProvider>
+        <Button>Hello</Button>
+      </AdaptivityProvider>
+    </ConfigProvider>
   )
 }
 
