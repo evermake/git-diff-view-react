@@ -1,0 +1,36 @@
+{
+  "totalLines": 12345,
+  "files": [
+    {
+      "path": "package.json",
+      "diffStart": 1,
+      "diffEnd": 10,
+      "isBinary": false
+    },
+    {
+      "path": "src/client/api.ts",
+      "diffStart": 11,
+      "diffEnd": 100,
+      "isBinary": false
+    }
+  ],
+  "lines": [
+    {
+      "type": "not-modified",
+      "content": "bla bla bla..."
+    },
+    {
+      "type": "added",
+      "content": "bla bla bla..."
+    },
+    {
+      "type": "deleted",
+      "content": "bla bla bla..."
+    },
+    {
+      "type": "modified",
+      "oldContent": "bla bla bla...",
+      "newContent": "bla bla bla"
+    }
+  ]
+}
