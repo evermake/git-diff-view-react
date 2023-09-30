@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import type { DiffApi, DiffId, DiffInfo, DiffLine } from '../api/api'
 
 interface CachedLine {
@@ -97,16 +97,16 @@ interface RenderFile {
   isBinary: boolean
 }
 
-const LINES_IN_PAGE = 500
+const LINES_IN_PAGE = 50
 
 const diff = new DiffStorage()
-function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
-  const [reachedTop, setReachedTop] = useState(false)
-  const [reachedBottom, setReachedBottom] = useState(false)
+let renderRegionStart = 0
+let renderRegionEnd = 0
+let isBusy = false
+function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpdate: (shouldUseBottomAnchor?: true) => any) {
+  const reachedTop = useRef(false)
+  const reachedBottom = useRef(false)
   const [renderFiles, setRenderFiles] = useState<RenderFile[]>([])
-
-  const [renderRegionStart, setRenderRegionStart] = useState(0)
-  const [renderRegionEnd, setRenderRegionEnd] = useState(0)
 
   const requestContent = async (start: number, end: number) => {
     const fixedStart = Math.max(1, start)
@@ -115,20 +115,24 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
     if (diff.rangeExists(fixedStart, fixedEnd))
       return diff.getParentRange(fixedStart, fixedEnd)
 
+    isBusy = true
     const lines = await api.getDiffLines({ diffId, lineFrom: fixedStart, lineTo: fixedEnd })
+    isBusy = false
 
     diff.addRange(fixedStart, lines)
     return diff.getParentRange(fixedStart, fixedEnd)
   }
 
-  const updateRenderFiles = (lines: CachedLine[]) => {
-    setRenderRegionStart(lines[0].index)
-    setRenderRegionEnd(lines[lines.length - 1].index)
+  const updateRenderFiles = (lines: CachedLine[], shouldUseBottomAnchor?: true) => {
+    renderRegionStart = lines[0].index
+    renderRegionEnd = lines[lines.length - 1].index
 
     const isTopReached = lines[0].index === 1
     const isBottomReached = lines[lines.length - 1].index === meta.lines
-    setReachedTop(isTopReached)
-    setReachedBottom(isBottomReached)
+    // setReachedTop(isTopReached)
+    // setReachedBottom(isBottomReached)
+    reachedTop.current = isTopReached
+    reachedBottom.current = isBottomReached
 
     let firstRenderedFileIndex = 0
     if (!isTopReached) {
@@ -175,20 +179,30 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
       }
     }
 
+    beforeUpdate(shouldUseBottomAnchor)
     setRenderFiles(res)
   }
 
   const continueBottom = () => {
+    if (isBusy)
+      return
+
     requestContent(renderRegionEnd, renderRegionEnd + LINES_IN_PAGE)
       .then(content => updateRenderFiles(content))
   }
 
   const continueTop = () => {
+    if (isBusy)
+      return
+
     requestContent(renderRegionStart - LINES_IN_PAGE, renderRegionStart)
-      .then(content => updateRenderFiles(content))
+      .then(content => updateRenderFiles(content, true))
   }
 
   const jumpToFile = (path: string) => {
+    if (isBusy)
+      return
+
     const fileMetaIndex = meta.files.findIndex(f => f.path === path)
     if (fileMetaIndex === -1)
       throw new Error(`No such file with path ${path}`)
