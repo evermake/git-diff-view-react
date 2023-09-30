@@ -7,7 +7,7 @@ interface P {
 
 function FileBrowser(props: P) {
   return (
-      <Group mode="card" style={{ top: 10 }}>
+      <Group mode="card">
         <Cell disabled={true}>
           <Text>
             {props.files.length} file(s) changed:

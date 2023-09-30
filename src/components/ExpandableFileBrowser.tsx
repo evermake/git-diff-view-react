@@ -9,7 +9,7 @@ interface P {
 
 function ExpandableFileBrowser(props: P) {
   return (
-    <SplitCol fixed width={props.show ? 220 : 0} maxWidth={props.show ? 230 : 0}>
+    <SplitCol fixed width={props.show ? 220 : 0} maxWidth={props.show ? 240 : 0}>
       <FileBrowser files={props.files}/>
     </SplitCol>
   )

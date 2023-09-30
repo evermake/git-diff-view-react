@@ -62,8 +62,7 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
       <div ref={topRef} style={{ height: 1 }}/>
       {renderFiles.map(renderFile => (
         <div key={`${renderFile.path}-${renderFile.content.length}`}>
-          {renderFile.path}
-          <FileDiff diffs={renderFile.content}/>
+          <FileDiff diffs={renderFile.content} path={renderFile.path}/>
         </div>
       ))}
       <div ref={bottomRef} style={{ height: 1 }}/>

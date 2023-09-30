@@ -72,11 +72,17 @@ function Diff() {
                             {appearance === 'dark' ? <Icon28SunOutline/> : <Icon28MoonOutline/>}
                           </PanelHeaderButton>
                         )}
+                        fixed
+                        style={{ transform: 'translate(-10px, 10px)', marginBottom: 10 }}
                       >
                         <Title>Comparing {hashA} and {hashB}</Title>
                       </PanelHeader>
                       {diffInfo
-                      && <FileDiffList diffId={{ hashA, hashB }} diffInfo={diffInfo} api={api}/>}
+
+                      && <div style={{ paddingRight: 10 }} >
+                          <FileDiffList diffId={{ hashA, hashB }} diffInfo={diffInfo} api={api}/>
+                        </div>
+                      }
                     </Panel>
                   </View>
                 </SplitCol>
