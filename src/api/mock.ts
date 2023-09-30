@@ -34,7 +34,7 @@ export class MockDiff implements DiffApi {
     // Simulate parsing
     await sleepRandomIn(500, 1000)
 
-    return data.lines.slice(lineFrom - 1, lineTo - 1)
+    return data.lines.slice(lineFrom - 1, lineTo)
   }
 }
 

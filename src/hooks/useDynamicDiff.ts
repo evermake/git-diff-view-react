@@ -112,13 +112,13 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
     const fixedStart = Math.max(1, start)
     const fixedEnd = Math.min(meta.lines, end)
 
-    if (diff.rangeExists(start, end))
-      return diff.getParentRange(start, end)
+    if (diff.rangeExists(fixedStart, fixedEnd))
+      return diff.getParentRange(fixedStart, fixedEnd)
 
     const lines = await api.getDiffLines({ diffId, lineFrom: fixedStart, lineTo: fixedEnd })
-    diff.addRange(start, lines)
 
-    return diff.getParentRange(start, end)
+    diff.addRange(fixedStart, lines)
+    return diff.getParentRange(fixedStart, fixedEnd)
   }
 
   const updateRenderFiles = (lines: CachedLine[]) => {
@@ -207,7 +207,7 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
       .then(content => updateRenderFiles(content))
   }
 
-  return [{ renderFiles, reachedTop, reachedBottom }, { continueBottom, continueTop, jumpToFile }]
+  return { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, jumpToFile }
 }
 
 export default useDynamicDiff
