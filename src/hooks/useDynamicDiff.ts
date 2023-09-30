@@ -99,14 +99,14 @@ interface RenderFile {
 
 const LINES_IN_PAGE = 500
 
+const diff = new DiffStorage()
 function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
-  const diff = new DiffStorage()
   const [reachedTop, setReachedTop] = useState(false)
   const [reachedBottom, setReachedBottom] = useState(false)
   const [renderFiles, setRenderFiles] = useState<RenderFile[]>([])
 
-  let renderRegionStart = 0
-  let renderRegionEnd = 0
+  const [renderRegionStart, setRenderRegionStart] = useState(0)
+  const [renderRegionEnd, setRenderRegionEnd] = useState(0)
 
   const requestContent = async (start: number, end: number) => {
     const fixedStart = Math.max(1, start)
@@ -122,8 +122,8 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
   }
 
   const updateRenderFiles = (lines: CachedLine[]) => {
-    renderRegionStart = lines[0].index
-    renderRegionEnd = lines[lines.length - 1].index
+    setRenderRegionStart(lines[0].index)
+    setRenderRegionEnd(lines[lines.length - 1].index)
 
     setReachedTop(renderRegionStart === 1)
     setReachedBottom(renderRegionEnd === meta.lines)
