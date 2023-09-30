@@ -30,24 +30,10 @@ class DiffStorage {
     if (startIndex === null || !this.rangeExists(start, end))
       throw new Error('This range of lines is not in the cache')
 
-    const parentRangeStartIndex = startIndex
-    // for (let i = startIndex; i >= 0; i--) {
-    //   if (this.storage[i].index === start - (startIndex - i))
-    //     parentRangeStartIndex = i
-    //   else
-    //     break
-    // }
-
-    const parentRangeEndIndex = startIndex + (end - start)
-    // for (let i = startIndex + (end - start); i < this.storage.length; i++) {
-    //   if (this.storage[i].index === end + (i - (startIndex + (end - start))))
-    //     parentRangeEndIndex = i
-    //   else
-    //     break
-    // }
+    const endIndex = startIndex + (end - start)
 
     const res: CachedLine[] = []
-    for (let i = parentRangeStartIndex; i <= parentRangeEndIndex; i++)
+    for (let i = startIndex; i <= endIndex; i++)
       res.push(this.storage[i])
 
     return res
@@ -190,8 +176,6 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
     if (isBusy)
       return
 
-    console.log('Adding to bottom')
-
     requestContent(renderRegionStart, renderRegionEnd + LINES_IN_PAGE)
       .then(content => updateRenderFiles(content))
   }
@@ -199,8 +183,6 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
   const continueTop = () => {
     if (isBusy)
       return
-
-    console.log('Adding to top')
 
     requestContent(renderRegionStart - LINES_IN_PAGE, renderRegionEnd)
       .then(content => updateRenderFiles(content, true))
@@ -210,8 +192,6 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
     if (isBusy)
       return
 
-    console.log('Removing from bottom')
-
     requestContent(renderRegionStart, renderRegionEnd - LINES_IN_PAGE)
       .then(content => updateRenderFiles(content))
   }
@@ -219,8 +199,6 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
   const removeFromTop = () => {
     if (isBusy)
       return
-
-    console.log('Removing from top')
 
     requestContent(renderRegionStart + LINES_IN_PAGE, renderRegionEnd)
       .then(content => updateRenderFiles(content, true))
