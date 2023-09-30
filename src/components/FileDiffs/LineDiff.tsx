@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import React from 'react'
 import type { ClassValue } from 'clsx'
 import clsx from 'clsx'
 
@@ -9,54 +9,58 @@ export interface LineDiffProps {
   diff: DiffLine
 }
 
-function LineDiff({ diff }: LineDiffProps): ReactNode {
-  let children
-  if (diff.type === 'added') {
-    children = (
-      <>
-        <Cell type="void" lastRight />
-        <Cell type="line-no" state="added" lineNo={diff.lineNo} />
-        <Cell type="content" state="added" content={diff.content} />
-      </>
-    )
-  }
-  else if (diff.type === 'deleted') {
-    children = (
-      <>
-        <Cell type="line-no" state="deleted" lineNo={diff.lineNo} />
-        <Cell type="content" state="deleted" content={diff.content} lastRight />
-        <Cell type="void" />
-      </>
-    )
-  }
-  else if (diff.type === 'modified') {
-    children = (
-      <>
-        <Cell type="line-no" state="deleted" lineNo={diff.oldLineNo} />
-        <Cell type="content" state="deleted" content={diff.oldContent} lastRight />
-        <Cell type="line-no" state="added" lineNo={diff.newLineNo} />
-        <Cell type="content" state="added" content={diff.newContent} />
-      </>
-    )
-  }
-  else if (diff.type === 'not-modified') {
-    children = (
-      <>
-        <Cell type="line-no" state="not-modified" lineNo={diff.oldLineNo} />
-        <Cell type="content" state="not-modified" content={diff.content} lastRight />
-        <Cell type="line-no" state="not-modified" lineNo={diff.newLineNo} />
-        <Cell type="content" state="not-modified" content={diff.content} />
-      </>
-    )
-  }
-  else {
-    assertNotReached(diff)
-  }
+const LineDiff: React.FC<LineDiffProps> = React.memo(
+  ({ diff }) => {
+    let children
+    if (diff.type === 'added') {
+      children = (
+        <>
+          <Cell type="void-line-no" />
+          <Cell type="void" lastRight />
+          <Cell type="line-no" state="added" lineNo={diff.lineNo} />
+          <Cell type="content" state="added" content={diff.content} />
+        </>
+      )
+    }
+    else if (diff.type === 'deleted') {
+      children = (
+        <>
+          <Cell type="line-no" state="deleted" lineNo={diff.lineNo} />
+          <Cell type="content" state="deleted" content={diff.content} lastRight />
+          <Cell type="void-line-no" />
+          <Cell type="void" />
+        </>
+      )
+    }
+    else if (diff.type === 'modified') {
+      children = (
+        <>
+          <Cell type="line-no" state="deleted" lineNo={diff.oldLineNo} />
+          <Cell type="content" state="deleted" content={diff.oldContent} lastRight />
+          <Cell type="line-no" state="added" lineNo={diff.newLineNo} />
+          <Cell type="content" state="added" content={diff.newContent} />
+        </>
+      )
+    }
+    else if (diff.type === 'not-modified') {
+      children = (
+        <>
+          <Cell type="line-no" state="not-modified" lineNo={diff.oldLineNo} />
+          <Cell type="content" state="not-modified" content={diff.content} lastRight />
+          <Cell type="line-no" state="not-modified" lineNo={diff.newLineNo} />
+          <Cell type="content" state="not-modified" content={diff.content} />
+        </>
+      )
+    }
+    else {
+      assertNotReached(diff)
+    }
 
-  return (
-    <tr className={styles.row}>{children}</tr>
-  )
-}
+    return (
+      <tr className={styles.row}>{children}</tr>
+    )
+  },
+)
 
 type CellProps = {
   lastRight?: boolean
@@ -72,12 +76,13 @@ type CellProps = {
     content: string
   } | {
     type: 'void'
+  } | {
+    type: 'void-line-no'
   }
 )
 
 function Cell(props: CellProps) {
   let content = null
-  let colSpan = 1
   let classes: ClassValue[] = []
   if (props.type === 'line-no') {
     content = props.lineNo
@@ -102,8 +107,10 @@ function Cell(props: CellProps) {
     ]
   }
   else if (props.type === 'void') {
-    colSpan = 2
     classes = [styles['cell-void']]
+  }
+  else if (props.type === 'void-line-no') {
+    classes = [styles['cell-void-line-no']]
   }
   else {
     assertNotReached(props)
@@ -116,7 +123,6 @@ function Cell(props: CellProps) {
         { [styles['cell-last-right']]: props.lastRight },
         ...classes,
       ])}
-      colSpan={colSpan}
     >{ content }</td>
   )
 }

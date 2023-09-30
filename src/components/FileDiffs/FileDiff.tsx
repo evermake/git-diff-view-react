@@ -1,35 +1,38 @@
 import { type ReactNode, useState } from 'react'
 import clsx from 'clsx'
-import { Button } from '@vkontakte/vkui'
+import { Card, IconButton, Title, useAppearance } from '@vkontakte/vkui'
+import { Icon16Chevron } from '@vkontakte/icons'
 import type { DiffLine } from '../../api/api'
 import styles from './FileDiff.module.scss'
 import LineDiff from './LineDiff'
 
 export interface FileDiffProps {
+  path: string
   diffs: DiffLine[]
-  showExpandButton?: boolean
-  onExpandButtonClick?: () => void
 }
 
 function FileDiff({
+  path,
   diffs,
-  showExpandButton,
-  onExpandButtonClick,
 }: FileDiffProps): ReactNode {
+  const appearance = useAppearance()
   const [collapsed, setCollapsed] = useState(false)
 
   return (
-    <div className={styles.root}>
-      <div className={styles.header}>
-        <Button onClick={() => setCollapsed(prev => !prev)}>
-          { collapsed ? 'Expand' : 'Collapse' }
-        </Button>
-        {showExpandButton && (
-          <Button onClick={onExpandButtonClick}>
-            Expand all
-          </Button>
-        )}
-      </div>
+    <Card
+      className={clsx([
+        styles.root,
+        {
+          [styles.dark]: appearance === 'dark',
+        },
+      ])}
+      mode='outline'
+    >
+      <FileHeader
+        path={path}
+        collapsed={collapsed}
+        onCollapseClick={() => setCollapsed(prev => !prev)}
+      />
       <table
         className={clsx(
           styles['content-table'],
@@ -42,6 +45,33 @@ function FileDiff({
           {diffs.map(diff => <LineDiff diff={diff} />)}
         </tbody>
       </table>
+    </Card>
+  )
+}
+
+interface FileHeaderProps {
+  path: string
+  collapsed?: boolean
+  onCollapseClick?: () => void
+}
+
+function FileHeader(props: FileHeaderProps) {
+  return (
+    <div className={styles.header}>
+      <div className={styles['header-left']}>
+        <IconButton
+          onClick={props.onCollapseClick}
+        >
+          <Icon16Chevron
+            width={16}
+            height={16}
+            className={clsx({
+              [styles['rotate-90']]: !props.collapsed,
+            })}
+          />
+        </IconButton>
+        <Title level="3">{ props.path }</Title>
+      </div>
     </div>
   )
 }

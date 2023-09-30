@@ -23,8 +23,12 @@
     text-align: right;
     white-space: nowrap;
   }
-  &-void {
-    background: rgba(0, 0, 0, 0.1);
+  &-void-line-no {
+    width: 50px;
+  }
+  &-void,
+  &-void-line-no {
+    background: rgba(0, 0, 0, 0.2);
   }
   &-added {
     background: rgba(112, 222, 53, 0.2);
@@ -36,6 +40,6 @@
   
   }
   &-last-right {
-    border-right: 1px solid #dfdfdf;
+    border-right: 1px solid var(--cell-border-color);
   }
 }
