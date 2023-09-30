@@ -38,9 +38,9 @@ class DiffStorage {
         break
     }
 
-    let parentRangeEndIndex = startIndex + (end - start + 1)
-    for (let i = startIndex + (end - start + 1); i < this.storage.length; i++) {
-      if (this.storage[i].index === end + (i - (startIndex + (end - start + 1))))
+    let parentRangeEndIndex = startIndex + (end - start)
+    for (let i = startIndex + (end - start); i < this.storage.length; i++) {
+      if (this.storage[i].index === end + (i - (startIndex + (end - start))))
         parentRangeEndIndex = i
       else
         break
@@ -125,14 +125,16 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
     setRenderRegionStart(lines[0].index)
     setRenderRegionEnd(lines[lines.length - 1].index)
 
-    setReachedTop(renderRegionStart === 1)
-    setReachedBottom(renderRegionEnd === meta.lines)
+    const isTopReached = lines[0].index === 1
+    const isBottomReached = lines[lines.length - 1].index === meta.lines
+    setReachedTop(isTopReached)
+    setReachedBottom(isBottomReached)
 
     let firstRenderedFileIndex = 0
-    if (!reachedTop) {
+    if (!isTopReached) {
       for (let i = 0; i < meta.files.length; i++) {
         const file = meta.files[i]
-        if (!file.isBinary && file.diffEndLine >= renderRegionStart) {
+        if (!file.isBinary && file.diffEnd >= lines[0].index) {
           firstRenderedFileIndex = i
           break
         }
@@ -140,10 +142,10 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
     }
 
     let lastRenderedFileIndex = meta.files.length - 1
-    if (!reachedBottom) {
+    if (!isBottomReached) {
       for (let i = 0; i < meta.files.length; i++) {
         const file = meta.files[i]
-        if (!file.isBinary && file.diffStartLine >= renderRegionEnd) {
+        if (!file.isBinary && file.diffStart >= lines[lines.length - 1].index) {
           lastRenderedFileIndex = i - 1
           break
         }
@@ -162,9 +164,12 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
 
       if (!file.isBinary) {
         while (nextLineIndex < lines.length) {
-          if (lines[nextLineIndex].index <= file.diffEndLine) {
+          if (lines[nextLineIndex].index <= file.diffEnd) {
             res[res.length - 1].content.push(lines[nextLineIndex].content)
             nextLineIndex++
+          }
+          else {
+            break
           }
         }
       }
@@ -192,12 +197,12 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi) {
     let fileStartsAtLine = 1
 
     // eslint-disable-next-line max-statements-per-line
-    if (!fileMeta.isBinary) { fileStartsAtLine = fileMeta.diffStartLine }
+    if (!fileMeta.isBinary) { fileStartsAtLine = fileMeta.diffStart }
     else {
       for (let i = fileMetaIndex - 1; i >= 0; i--) {
         const fileMeta = meta.files[i]
         if (!fileMeta.isBinary) {
-          fileStartsAtLine = fileMeta.diffEndLine
+          fileStartsAtLine = fileMeta.diffEnd
           break
         }
       }
