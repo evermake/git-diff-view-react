@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import type { DiffApi, DiffId, DiffInfo } from '../api/api'
 import useDynamicDiff from '../hooks/useDynamicDiff'
 import FileDiff from './FileDiffs/FileDiff'
@@ -13,7 +13,7 @@ interface P {
 let bottomBefore = -1
 let topBefore = -1
 
-function FileDiffList({ diffId, diffInfo, api }: P) {
+const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
   const topRef = useRef<HTMLDivElement | null>(null)
   const bottomRef = useRef<HTMLDivElement | null>(null)
 
@@ -35,6 +35,10 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
 
   const { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, removeFromBottom, removeFromTop, jumpToFile } = useDynamicDiff(diffId, diffInfo, api, beforeUpdate)
 
+  useImperativeHandle(ref, () => ({
+    jumpToFile,
+  }))
+
   useEffect(() => {
     const bottomPosition = bottomRef.current?.getBoundingClientRect().top
     const topPosition = topRef.current?.getBoundingClientRect().top
@@ -50,7 +54,7 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
   useEffect(() => {
     continueBottom()
 
-    addEventListener('scroll', (e) => {
+    addEventListener('scroll', () => {
       const bottomPosition = bottomRef.current?.getBoundingClientRect().top
       const topPosition = topRef.current?.getBoundingClientRect().top
       if (bottomPosition === undefined || topPosition === undefined)
@@ -83,6 +87,6 @@ function FileDiffList({ diffId, diffInfo, api }: P) {
       <DiffLoader hidden={reachedBottom.current || renderFiles.length === 0}/>
     </>
   )
-}
+})
 
 export default FileDiffList

@@ -2,6 +2,7 @@ import { Cell, Group, Separator, Text } from '@vkontakte/vkui'
 import type { FileDiffInfo } from '../api/api'
 
 interface P {
+  onFileClick: (path: string) => any
   files: FileDiffInfo[]
 }
 
@@ -15,7 +16,7 @@ function FileBrowser(props: P) {
         </Cell>
         <Separator/>
         {props.files.map(f =>
-          <Cell key={f.path}>
+          <Cell onClick={() => props.onFileClick(f.path)} key={f.path}>
             <Text>{f.path}</Text>
           </Cell>,
         )}

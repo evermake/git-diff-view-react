@@ -11,7 +11,7 @@ import {
 import { Icon28ListOutline, Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ExpandableFileBrowser from '../components/ExpandableFileBrowser'
 import FileDiffList from '../components/FileDiffList'
 import type { DiffInfo } from '../api/api'
@@ -19,6 +19,7 @@ import { MockDiff } from '../api/mock'
 import { useTheme } from '../hooks/useTheme'
 
 function Diff() {
+  const fileDiffList = useRef<any>(null)
   const [showFileBrowser, setShowFileBrowser] = useState(true)
   const [diffInfo, setDiffInfo] = useState<DiffInfo | null>(null)
   const [api, _] = useState(() => new MockDiff())
@@ -41,6 +42,7 @@ function Diff() {
             <ExpandableFileBrowser
               show={showFileBrowser}
               files={diffInfo ? diffInfo.files : []}
+              onFileClick={path => fileDiffList.current.jumpToFile(path)}
             />
             <SplitCol>
               <Header
@@ -50,11 +52,9 @@ function Diff() {
               />
               <View activePanel='panel'>
                 <Panel id='panel'>
-
                   {diffInfo
-
                   && <div style={{ paddingRight: 10 }} >
-                      <FileDiffList diffId={{ hashA, hashB }} diffInfo={diffInfo} api={api}/>
+                      <FileDiffList ref={fileDiffList} diffId={{ hashA, hashB }} diffInfo={diffInfo} api={api}/>
                     </div>
                   }
                 </Panel>
