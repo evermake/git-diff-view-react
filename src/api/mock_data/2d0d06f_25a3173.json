@@ -14,7 +14,7 @@
       "diffEnd": 155
     },
     {
-      "path": ".../bunsen-avro/src/main/java/com/cerner/bunsen/avro/converters/DefinitionToAvroVisitor.java",
+      "path": "bunsen/bunsen-avro/src/main/java/com/cerner/bunsen/avro/converters/DefinitionToAvroVisitor.java",
       "isBinary": false,
       "diffStart": 156,
       "diffEnd": 604
@@ -50,7 +50,7 @@
       "diffEnd": 1822
     },
     {
-      "path": "...bunsen-core-r4/src/main/java/com/cerner/bunsen/definitions/r4/R4StructureDefinitions.java",
+      "path": "bunsen/bunsen-core-r4/src/main/java/com/cerner/bunsen/definitions/r4/R4StructureDefinitions.java",
       "isBinary": false,
       "diffStart": 1823,
       "diffEnd": 1871
@@ -68,13 +68,13 @@
       "diffEnd": 1983
     },
     {
-      "path": "...core-stu3/src/main/java/com/cerner/bunsen/definitions/stu3/Stu3FhirConversionSupport.java",
+      "path": "bunsen/bunsen-core-stu3/src/main/java/com/cerner/bunsen/definitions/stu3/Stu3FhirConversionSupport.java",
       "isBinary": false,
       "diffStart": 1984,
       "diffEnd": 2014
     },
     {
-      "path": "...-core-stu3/src/main/java/com/cerner/bunsen/definitions/stu3/Stu3StructureDefinitions.java",
+      "path": "bunsen/bunsen-core-stu3/src/main/java/com/cerner/bunsen/definitions/stu3/Stu3StructureDefinitions.java",
       "isBinary": false,
       "diffStart": 2015,
       "diffEnd": 2064
@@ -242,7 +242,7 @@
       "diffEnd": 3685
     },
     {
-      "path": "...ces/src/test/java/com/cerner/bunsen/test/profiles/stu3/BunsenTestStu3ProfileProvider.java",
+      "path": "bunsen/bunsen-uscore-resources/src/test/java/com/cerner/bunsen/test/profiles/stu3/BunsenTestStu3ProfileProvider.java",
       "isBinary": false,
       "diffStart": 3686,
       "diffEnd": 3743
