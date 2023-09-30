@@ -18,7 +18,7 @@ if __name__ == "__main__":
     for div in divs:
         lines = []
         file = dict()
-        file['fileName'] = div.select('a.Link--primary')[0].text
+        file['path'] = div.select('a.Link--primary')[0].text
         file['isBinary'] = False
         diffs = div.select('tr[data-hunk]')
         file['diffStart'] = anchor_line + 1
