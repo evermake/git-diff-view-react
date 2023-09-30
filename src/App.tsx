@@ -1,18 +1,14 @@
-import { AdaptivityProvider, Button, ConfigProvider, useAppearance } from '@vkontakte/vkui'
+import { Route, Routes } from 'react-router-dom'
+import Diff from './routes/Diff'
 
 function App() {
-  const appearance = useAppearance()
-
   return (
-    <ConfigProvider
-      platform="vkcom"
-      appearance={appearance}
-      isWebView={false}
-    >
-      <AdaptivityProvider>
-        <Button>Hello</Button>
-      </AdaptivityProvider>
-    </ConfigProvider>
+    <>
+      <Routes>
+        <Route path="/" element={<Diff />} />
+        <Route path="*" element={<>No such route on frontend</>} />
+      </Routes>
+    </>
   )
 }
 

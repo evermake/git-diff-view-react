@@ -13,8 +13,10 @@
   "dependencies": {
     "@vkontakte/icons": "^2.69.0",
     "@vkontakte/vkui": "^5.8.2",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.17",
