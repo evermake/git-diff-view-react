@@ -17,14 +17,16 @@ import {
 import { Icon28ListOutline } from '@vkontakte/icons'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ExpandableFileBrowser from '../components/ExpandableFileBrowser'
-import type { FileDiffInfo } from '../api/api'
+import type { DiffInfo } from '../api/api'
 import { MockDiff } from '../api/mock'
+import FileDiffList from '../components/FileDiffList'
 
 function Diff() {
   const [showFileBrowser, setShowFileBrowser] = useState(true)
-  const [files, setFiles] = useState<FileDiffInfo[]>([])
+  const [diffInfo, setDiffInfo] = useState<DiffInfo | null>(null)
+  const [api, _] = useState(() => new MockDiff())
 
   const appearance = useAppearance()
   const platform: PlatformType = 'vkcom'
@@ -34,9 +36,10 @@ function Diff() {
   const hashB = query.b
   const commitHashesProvided = typeof hashA === 'string' && typeof hashB === 'string'
 
-  const api = new MockDiff()
-  if (commitHashesProvided)
-    api.getDiffInfo({ hashA, hashB }).then(d => setFiles(d.files))
+  useEffect(() => {
+    if (commitHashesProvided)
+      api.getDiffInfo({ hashA, hashB }).then(d => setDiffInfo(d))
+  }, [])
 
   return (
     <ConfigProvider
@@ -48,14 +51,15 @@ function Diff() {
         {commitHashesProvided
           && <>
               <SplitLayout>
-                <ExpandableFileBrowser show={showFileBrowser} files={files}/>
+                <ExpandableFileBrowser show={showFileBrowser} files={diffInfo ? diffInfo.files : []}/>
                 <SplitCol>
                   <View activePanel='panel'>
                     <Panel id='panel'>
                       <PanelHeader before={<PanelHeaderButton onClick={() => setShowFileBrowser(!showFileBrowser)}> <Icon28ListOutline/> </PanelHeaderButton>} visor={true}>
                         <Title>Comparing {hashA} and {hashB}</Title>
                       </PanelHeader>
-                      DATA
+                      {diffInfo
+                      && <FileDiffList diffId={{ hashA, hashB }} diffInfo={diffInfo} api={api}/>}
                     </Panel>
                   </View>
                 </SplitCol>

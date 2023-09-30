@@ -71,13 +71,13 @@ export type FileDiffInfo = {
      * Number of line in the diff, where diff for this file begins.
      * (inclusive)
      */
-    diffStartLine: number
+    diffStart: number
 
     /**
      * Number of line in the diff, where diff for this file ends.
      * (inclusive)
      */
-    diffEndLine: number
+    diffEnd: number
   } | {
     isBinary: true
   }
