@@ -10,6 +10,7 @@ import {
   SimpleCell,
   SplitCol,
   SplitLayout,
+  Title,
   View,
   useAppearance,
 } from '@vkontakte/vkui'
@@ -52,7 +53,7 @@ function Diff() {
                   <View activePanel='panel'>
                     <Panel id='panel'>
                       <PanelHeader before={<PanelHeaderButton onClick={() => setShowFileBrowser(!showFileBrowser)}> <Icon28ListOutline/> </PanelHeaderButton>} visor={true}>
-                        Comparing {hashA} and {hashB}
+                        <Title>Comparing {hashA} and {hashB}</Title>
                       </PanelHeader>
                       DATA
                     </Panel>
@@ -65,7 +66,7 @@ function Diff() {
         {!commitHashesProvided
           && <>
             <SimpleCell>Please provide commit hashes in query like so:</SimpleCell>
-            <SimpleCell>http://localhost:5173/?a=commitHash1&b=commitHash2</SimpleCell>
+            <SimpleCell>http://localhost:5173/?a=2d0d06f&b=25a3173</SimpleCell>
           </>
         }
       </AdaptivityProvider>
