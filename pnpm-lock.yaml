@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@uidotdev/usehooks':
+    specifier: ^2.3.1
+    version: 2.3.1(react-dom@18.2.0)(react@18.2.0)
   '@vkontakte/icons':
     specifier: ^2.69.0
     version: 2.69.0(react@18.2.0)
@@ -955,6 +958,17 @@ packages:
       '@typescript-eslint/types': 6.7.3
       eslint-visitor-keys: 3.4.3
     dev: true
+
+  /@uidotdev/usehooks@2.3.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-1GL8CatTsTGZdwPNrZ44JhJI5QWip7oyDXEXFBEibJ+P+p+ZBi7mKrpG90ZIdQTSEcvkfiE2Y492Uo3ubPBZ3g==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@vitejs/plugin-react@4.1.0(vite@4.4.9):
     resolution: {integrity: sha512-rM0SqazU9iqPUraQ2JlIvReeaxOoRj6n+PzB1C0cBzIbd8qP336nC39/R9yPi3wVcah7E7j/kdU1uCUqMEU4OQ==}

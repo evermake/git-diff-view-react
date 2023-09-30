@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@uidotdev/usehooks": "^2.3.1",
     "@vkontakte/icons": "^2.69.0",
     "@vkontakte/vkui": "^5.8.2",
     "clsx": "^2.0.0",
