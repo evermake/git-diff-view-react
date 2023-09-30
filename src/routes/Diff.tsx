@@ -1,32 +1,71 @@
-import { AdaptivityProvider, ConfigProvider, SimpleCell, useAppearance } from '@vkontakte/vkui'
+import type {
+  PlatformType,
+} from '@vkontakte/vkui'
+import {
+  AdaptivityProvider,
+  ConfigProvider,
+  Panel,
+  PanelHeader,
+  PanelHeaderButton,
+  SimpleCell,
+  SplitCol,
+  SplitLayout,
+  View,
+  useAppearance,
+} from '@vkontakte/vkui'
+import { Icon28ListOutline } from '@vkontakte/icons'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
+import { useState } from 'react'
+import ExpandableFileBrowser from '../components/ExpandableFileBrowser'
+import type { FileDiffInfo } from '../api/api'
+import { MockDiff } from '../api/mock'
 
 function Diff() {
-  const appearance = useAppearance()
-  const query = queryString.parse(useLocation().search)
-  const commitHash1 = query.a
-  const commitHash2 = query.b
+  const [showFileBrowser, setShowFileBrowser] = useState(true)
+  const [files, setFiles] = useState<FileDiffInfo[]>([])
 
-  const commitHashesProvided = !!(commitHash1 && commitHash2)
+  const appearance = useAppearance()
+  const platform: PlatformType = 'vkcom'
+
+  const query = queryString.parse(useLocation().search)
+  const hashA = query.a
+  const hashB = query.b
+  const commitHashesProvided = typeof hashA === 'string' && typeof hashB === 'string'
+
+  const api = new MockDiff()
+  if (commitHashesProvided)
+    api.getDiffInfo({ hashA, hashB }).then(d => setFiles(d.files))
 
   return (
     <ConfigProvider
-      platform="vkcom"
+      platform={platform}
       appearance={appearance}
       isWebView={false}
     >
       <AdaptivityProvider>
+        {commitHashesProvided
+          && <>
+              <SplitLayout>
+                <ExpandableFileBrowser show={showFileBrowser} files={files}/>
+                <SplitCol>
+                  <View activePanel='panel'>
+                    <Panel id='panel'>
+                      <PanelHeader before={<PanelHeaderButton onClick={() => setShowFileBrowser(!showFileBrowser)}> <Icon28ListOutline/> </PanelHeaderButton>} visor={true}>
+                        Comparing {hashA} and {hashB}
+                      </PanelHeader>
+                      DATA
+                    </Panel>
+                  </View>
+                </SplitCol>
+              </SplitLayout>
+          </>
+        }
+
         {!commitHashesProvided
           && <>
             <SimpleCell>Please provide commit hashes in query like so:</SimpleCell>
             <SimpleCell>http://localhost:5173/?a=commitHash1&b=commitHash2</SimpleCell>
-          </>
-        }
-
-        {commitHashesProvided
-          && <>
-            <SimpleCell>Comparing {commitHash1} and {commitHash2}</SimpleCell>
           </>
         }
       </AdaptivityProvider>
