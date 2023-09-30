@@ -1,7 +1,7 @@
 import { type ReactNode, useState } from 'react'
 import clsx from 'clsx'
-import { Card, IconButton, Title, useAppearance } from '@vkontakte/vkui'
-import { Icon16Chevron } from '@vkontakte/icons'
+import { Card, IconButton, Placeholder, Title, useAppearance } from '@vkontakte/vkui'
+import { Icon16Chevron, Icon56DocumentOutline } from '@vkontakte/icons'
 import type { DiffLine } from '../../api/api'
 import styles from './FileDiff.module.scss'
 import LineDiff from './LineDiff'
@@ -9,11 +9,13 @@ import LineDiff from './LineDiff'
 export interface FileDiffProps {
   path: string
   diffs: DiffLine[]
+  isBinary?: boolean
 }
 
 function FileDiff({
   path,
   diffs,
+  isBinary,
 }: FileDiffProps): ReactNode {
   const appearance = useAppearance()
   const [collapsed, setCollapsed] = useState(false)
@@ -33,18 +35,27 @@ function FileDiff({
         collapsed={collapsed}
         onCollapseClick={() => setCollapsed(prev => !prev)}
       />
-      <table
-        className={clsx(
-          styles['content-table'],
-          {
-            [styles['content-table-collapsed']]: collapsed,
-          },
-        )}
-      >
-        <tbody>
-          {diffs.map(diff => <LineDiff diff={diff} />)}
-        </tbody>
-      </table>
+      {isBinary
+        ? (
+        <Placeholder icon={<Icon56DocumentOutline />}>
+          Бинарные файлы скрыты из отоборажения
+        </Placeholder>
+          )
+        : (
+        <table
+          className={clsx(
+            styles['content-table'],
+            {
+              [styles['content-table-collapsed']]: collapsed,
+            },
+          )}
+        >
+          <tbody>
+            {diffs.map(diff => <LineDiff diff={diff} />)}
+          </tbody>
+        </table>
+          )
+      }
     </Card>
   )
 }
