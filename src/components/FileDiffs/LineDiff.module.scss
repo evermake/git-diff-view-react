@@ -1,0 +1,41 @@
+.row {
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: anywhere;
+}
+
+.cell {
+  box-sizing: border-box;
+  padding: 0;
+  vertical-align: top;
+
+  &-content {
+    // Guard to set height to row even if there is no content
+    &::after {
+      content: " ";
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+  &-line-no {
+    width: 50px;
+    padding: 0 6px 0 0;
+    text-align: right;
+    white-space: nowrap;
+  }
+  &-void {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  &-added {
+    background: rgba(112, 222, 53, 0.2);
+  }
+  &-deleted {
+    background: rgba(222, 53, 53, 0.2);
+  }
+  &-default {
+  
+  }
+  &-last-right {
+    border-right: 1px solid #dfdfdf;
+  }
+}

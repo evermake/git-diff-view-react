@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.header {
+  display: flex;
+  padding: 6px 16px;
+  gap: 6px;
+}
+
+.content-collapsed {
+  display: none;
+}
+
+.content-table {
+  border-top: 1px solid #ccc;
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.content-table-collapsed {
+  display: none;
+}
