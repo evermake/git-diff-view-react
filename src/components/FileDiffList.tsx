@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import type { DiffApi, DiffId, DiffInfo } from '../api/api'
 import useDynamicDiff from '../hooks/useDynamicDiff'
 import FileDiff from './FileDiffs/FileDiff'
-import DiffLoader from './DiffLoader'
+import DiffLoader from './DiffLoader/DiffLoader'
 
 interface P {
   diffId: DiffId

@@ -1,4 +1,6 @@
 import { Card, Spinner } from '@vkontakte/vkui'
+import clsx from 'clsx'
+import styles from './DiffLoader.module.scss'
 
 export interface DiffLoaderProps {
   hidden?: boolean
@@ -8,11 +10,10 @@ function DiffLoader({ hidden }: DiffLoaderProps) {
   return (
     <Card
       mode='outline'
-      style={{
-        display: hidden ? 'none' : 'block',
-        padding: '12px 0',
-        marginTop: 'var(--diff-spacing)',
-      }}
+      className={clsx([
+        styles.root,
+        { [styles.hidden]: hidden },
+      ])}
     >
       <Spinner>Загрузка...</Spinner>
     </Card>
