@@ -55,7 +55,12 @@ function Diff() {
         </div>
       </header>
       <aside className={styles.sidebar}>
-        <Text>Файлов изменено: {diffInfo?.files.length}</Text>
+        <Text
+          style={{
+            textAlign: 'center',
+            padding: '8px 6px',
+          }}
+        >Файлов изменено: {diffInfo?.files.length}</Text>
         <Separator />
         {diffInfo?.files.map(f =>
           <Cell key={f.path} onClick={() => fileDiffList.current.jumpToFile(f.path)}>

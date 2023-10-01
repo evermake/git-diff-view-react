@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.card {
+  padding: 24px;
+  width: min(90vw, 800px);
+  min-width: min(90vw, 800px);
+  max-width: min(90vw, 800px);
+}
+
+.heading {
+  margin-bottom: 16px;
+}
+
+.selectors-container {
+  gap: 12px;
+  display: flex;
+  min-width: 0;
+}
+
+.selector-container {
+  max-width: calc(50% - 6px);
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.button {
+  width: 100%;
+  padding: 6px;
+  margin-top: 12px;
+}
