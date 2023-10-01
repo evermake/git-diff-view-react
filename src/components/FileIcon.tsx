@@ -1,4 +1,4 @@
-import { JavascriptPlain, BashPlain, PythonPlain, MarkdownOriginal, JavaPlain, GoPlain, LinuxPlain } from 'devicons-react'
+import { JavascriptPlain, CPlain, CplusplusPlain, BashPlain, PythonPlain, MarkdownOriginal, JavaPlain, GoPlain, LinuxPlain } from 'devicons-react'
 
 interface P {
     path: string
@@ -19,6 +19,12 @@ function FileIcon(props: P) {
             return <MarkdownOriginal size={props.size} />
         case "py":
             return <PythonPlain size={props.size} />
+        case "c":
+        case "h":
+            return <CPlain size={props.size} />
+        case "cpp":
+        case "c++":
+            return <CplusplusPlain size={props.size} />
         case "sh":
         case "bash":
         case "zsh":
