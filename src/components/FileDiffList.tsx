@@ -72,10 +72,10 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
       if (topPosition > -2000 && !reachedTop.current)
         continueTop()
 
-      if (bottomPosition > 7000)
+      if (bottomPosition > 10000)
         removeFromBottom()
 
-      if (topPosition < -8000)
+      if (topPosition < -11000)
         removeFromTop()
     })
   }, [])
