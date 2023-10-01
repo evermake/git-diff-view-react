@@ -54,7 +54,7 @@
 
 .content {
   background: var(--vkui--color_background_content);
-  padding: 12px;
+  padding: var(--diff-spacing);
   margin-left: var(--sidebar-width);
   margin-top: var(--header-height);
 }
