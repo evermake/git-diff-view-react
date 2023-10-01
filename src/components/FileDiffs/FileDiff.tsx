@@ -6,6 +6,7 @@ import type { DiffLine } from '../../api/api'
 import IconChevron from '../icons/IconChevron'
 import styles from './FileDiff.module.scss'
 import LineDiff from './LineDiff'
+import FileIcon from '../FileIcon'
 
 export interface FileDiffProps {
   path: string
@@ -88,7 +89,8 @@ function FileHeader(props: FileHeaderProps) {
             <IconChevron/>
           </div>
         </IconButton>
-        <Title level="3">{ props.path }</Title>
+        <FileIcon path={props.path} />
+        <Title level="3">{props.path}</Title>
       </div>
     </div>
   )
