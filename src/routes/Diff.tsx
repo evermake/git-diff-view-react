@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {
   Cell,
   IconButton,
@@ -36,7 +36,9 @@ function Diff() {
     <div className={styles.root}>
       <header className={styles.header}>
         <div className={styles['header-left']}>
-          <Title level='3'>git diff</Title>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Title level='3'>git diff</Title>
+          </Link>
         </div>
         <div className={styles['header-right']}>
           <div>
