@@ -86,7 +86,8 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
       <div ref={topRef} style={{ height: 1 }}/>
       {renderFiles.map(renderFile => (
         <div key={`${renderFile.path}-${renderFile.content.length}`}>
-          <FileDiff diffs={renderFile.content} path={renderFile.path}/>
+          IsBinary??? [DEBUG] {renderFile.isBinary.toString()}
+          <FileDiff diffs={renderFile.content} path={renderFile.path} isBinary={renderFile.isBinary}/>
         </div>
       ))}
       <div ref={bottomRef} style={{ height: 1 }}/>
