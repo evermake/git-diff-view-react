@@ -21,7 +21,7 @@ function Selector() {
     <Select options={branches} onChange={
       (e: any) => {
         if (e && e.target && e.target.value)
-          api.getCommits(e.target.value).then(commits => setCommits1(commits.map((c: Commit) => ({ value: c.sha1, label: c.message }))))
+          api.getCommits(e.target.value).then(commits => setCommits1(commits.map((c: Commit) => ({ value: c.sha1, label: `#${c.sha1.substring(0, 7)} - ${c.message}` }))))
       }
     }/>
     {commits1.length > 0
@@ -32,7 +32,7 @@ function Selector() {
       <Select options={branches} onChange={
         (e: any) => {
           if (e && e.target && e.target.value)
-            api.getCommits(e.target.value).then(commits => setCommits2(commits.map((c: Commit) => ({ value: c.sha1, label: c.message }))))
+            api.getCommits(e.target.value).then(commits => setCommits2(commits.map((c: Commit) => ({ value: c.sha1, label: `#${c.sha1.substring(0, 7)} - ${c.message}` }))))
         }
       }/>
       {commits2.length > 0
