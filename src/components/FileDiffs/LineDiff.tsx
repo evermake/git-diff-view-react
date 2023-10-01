@@ -3,6 +3,7 @@ import type { ClassValue } from 'clsx'
 import clsx from 'clsx'
 
 import type { DiffLine } from '../../api/api'
+import { assertNotReached } from '../../utils/assertNotReached'
 import styles from './LineDiff.module.scss'
 
 export interface LineDiffProps {
@@ -125,10 +126,6 @@ function Cell(props: CellProps) {
       ])}
     >{ content }</td>
   )
-}
-
-function assertNotReached(_: never): never {
-  throw new Error('should not be impossible')
 }
 
 export default LineDiff
