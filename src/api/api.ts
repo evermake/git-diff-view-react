@@ -91,8 +91,14 @@ export interface Commit {
 }
 
 export class Api implements DiffApi {
+  #baseUrl: string
+
+  constructor() {
+    this.#baseUrl = import.meta.env.VITE_API_BASE_URL
+  }
+
   async getDiffInfo({ hashA, hashB }: DiffId): Promise<DiffInfo> {
-    const res = await fetch(`http://localhost:7777/repo/diff/map?a=${hashA}&b=${hashB}`)
+    const res = await fetch(`${this.#baseUrl}/repo/diff/map?a=${hashA}&b=${hashB}`)
     const data = await res.json()
     return {
       lines: data.linesTotal,
@@ -108,7 +114,7 @@ export class Api implements DiffApi {
   async getDiffLines({
     lineFrom, lineTo, diffId: { hashA, hashB },
   }: GetDiffLinesParams): Promise<DiffLine[]> {
-    const res = await fetch(`http://localhost:7777/repo/diff/part?a=${hashA}&b=${hashB}&start=${lineFrom}&end=${lineTo}`)
+    const res = await fetch(`${this.#baseUrl}/repo/diff/part?a=${hashA}&b=${hashB}&start=${lineFrom}&end=${lineTo}`)
     const data = await res.json()
 
     const typeMap = { 'M': 'modified', 'D': 'deleted', 'A': 'added', '': 'not-modified' }
@@ -137,14 +143,14 @@ export class Api implements DiffApi {
   }
 
   async getBranches() {
-    const res = await fetch('http://localhost:7777/repo/branches')
+    const res = await fetch(`${this.#baseUrl}/repo/branches`)
     const data = await res.json()
 
     return data.map((b: any) => b.name)
   }
 
   async getCommits(branch: string) {
-    const res = await fetch(`http://localhost:7777/repo/branches/${branch}/commits`)
+    const res = await fetch(`${this.#baseUrl}/repo/branches/${branch}/commits`)
     return await res.json()
   }
 }
