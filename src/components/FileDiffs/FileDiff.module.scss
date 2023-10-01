@@ -3,9 +3,13 @@
   flex-direction: column;
   margin-bottom: var(--diff-spacing);
   overflow: hidden;
+  margin: 2rem 1rem;
+  box-shadow: 0px 31px 37px 8px rgba(34, 60, 80, 0.04);
+  border: #535353 0.01px solid;
 }
 
 .header {
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+
 .row {
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace;
   white-space: pre-wrap;
   word-wrap: anywhere;
 }
@@ -10,6 +12,7 @@
   vertical-align: top;
 
   &-content {
+
     // Guard to set height to row even if there is no content
     &::after {
       content: " ";
@@ -17,28 +20,37 @@
       pointer-events: none;
     }
   }
+
   &-line-no {
     width: 50px;
     padding: 0 6px 0 0;
     text-align: right;
     white-space: nowrap;
+    filter: saturate(4);
+    user-select: none;
   }
+
   &-void-line-no {
     width: 50px;
   }
+
   &-void,
   &-void-line-no {
     background: var(--vkui--color_background_content);
   }
+
   &-added {
     background: rgba(112, 222, 53, 0.2);
   }
+
   &-deleted {
     background: rgba(222, 53, 53, 0.2);
   }
+
   &-not-modified {
     background: var(--vkui--color_background_modal);
   }
+
   &-last-right {
     border-right: 1px solid var(--vkui--color_image_border_alpha);
   }

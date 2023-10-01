@@ -15,6 +15,7 @@ import { useTheme } from '../hooks/useTheme'
 import SunOutline from '../components/icons/IconSunOutline'
 import MoonOutline from '../components/icons/IconMoonOutline'
 import styles from './Diff.module.scss'
+import FileIcon from '../components/FileIcon'
 
 function Diff() {
   const fileDiffList = useRef<any>(null)
@@ -45,17 +46,20 @@ function Diff() {
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               aria-label='Переключить тему приложения'
             >
-              {theme === 'dark' ? <SunOutline/> : <MoonOutline/>}
+              {theme === 'dark' ? <SunOutline /> : <MoonOutline />}
             </IconButton>
           </div>
         </div>
       </header>
       <aside className={styles.sidebar}>
         <Text>Файлов изменено: {diffInfo?.files.length}</Text>
-        <Separator/>
+        <Separator />
         {diffInfo?.files.map(f =>
           <Cell key={f.path} onClick={() => fileDiffList.current.jumpToFile(f.path)}>
-            <Text>{f.path}</Text>
+            <div>
+              <FileIcon size={18} path={f.path} />
+              <Text>{f.path}</Text>
+            </div>
           </Cell>,
         )}
       </aside>
