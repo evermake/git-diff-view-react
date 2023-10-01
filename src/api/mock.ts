@@ -1,9 +1,17 @@
-import type { DiffApi, DiffId, DiffInfo, DiffLine, GetDiffLinesParams } from './api'
+import type { Commit, DiffApi, DiffId, DiffInfo, DiffLine, GetDiffLinesParams } from './api'
 import mockData from './mock_data/data'
 
 export class MockDiff implements DiffApi {
+  getBranches(): Promise<string[]> {
+    throw new Error('Method not implemented.')
+  }
+
+  getCommits(): Promise<Commit[]> {
+    throw new Error('Method not implemented.')
+  }
+
   async getDiffInfo({ hashA, hashB }: DiffId): Promise<DiffInfo> {
-    const key = `2d0d06f...25a3173`
+    const key = `${hashA}...${hashB}`
     const data = mockData[key]
     // Simulate finding
     await sleepRandomIn(200, 600)
@@ -22,7 +30,7 @@ export class MockDiff implements DiffApi {
     lineTo,
     diffId: { hashA, hashB },
   }: GetDiffLinesParams): Promise<DiffLine[]> {
-    const key = `2d0d06f...25a3173`
+    const key = `${hashA}...${hashB}`
     const data = mockData[key]
 
     // Simulate finding

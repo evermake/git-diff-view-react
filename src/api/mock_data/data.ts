@@ -8,7 +8,7 @@ export interface MockData {
 }
 
 const data = {
-  '2d0d06f...25a3173': Data_2d0d06f_25a3173,
+  '2d0d06f...25a3173': Data_2d0d06f_25a3173 as any,
 } as Record<string, MockData | undefined>
 
 export default data
