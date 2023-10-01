@@ -3,7 +3,7 @@ import mockData from './mock_data/data'
 
 export class MockDiff implements DiffApi {
   async getDiffInfo({ hashA, hashB }: DiffId): Promise<DiffInfo> {
-    const key = `${hashA}...${hashB}`
+    const key = `2d0d06f...25a3173`
     const data = mockData[key]
     // Simulate finding
     await sleepRandomIn(200, 600)
@@ -22,7 +22,7 @@ export class MockDiff implements DiffApi {
     lineTo,
     diffId: { hashA, hashB },
   }: GetDiffLinesParams): Promise<DiffLine[]> {
-    const key = `${hashA}...${hashB}`
+    const key = `2d0d06f...25a3173`
     const data = mockData[key]
 
     // Simulate finding

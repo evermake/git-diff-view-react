@@ -36,7 +36,10 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
   const { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, removeFromBottom, removeFromTop, jumpToFile } = useDynamicDiff(diffId, diffInfo, api, beforeUpdate)
 
   useImperativeHandle(ref, () => ({
-    jumpToFile,
+    jumpToFile: (path: string) => {
+      window.scrollTo(0, 0)
+      jumpToFile(path)
+    },
   }))
 
   useEffect(() => {
@@ -49,6 +52,9 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
       window.scrollBy(0, bottomPosition - bottomBefore)
     if (topBefore !== -1)
       window.scrollBy(0, topPosition - topBefore)
+
+    bottomBefore = -1
+    topBefore = -1
   }, [renderFiles])
 
   useEffect(() => {

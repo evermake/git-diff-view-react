@@ -15,14 +15,14 @@ import { useEffect, useRef, useState } from 'react'
 import ExpandableFileBrowser from '../components/ExpandableFileBrowser'
 import FileDiffList from '../components/FileDiffList'
 import type { DiffInfo } from '../api/api'
-import { MockDiff } from '../api/mock'
 import { useTheme } from '../hooks/useTheme'
+import { Api } from '../api/api'
 
 function Diff() {
   const fileDiffList = useRef<any>(null)
   const [showFileBrowser, setShowFileBrowser] = useState(true)
   const [diffInfo, setDiffInfo] = useState<DiffInfo | null>(null)
-  const [api, _] = useState(() => new MockDiff())
+  const [api, _] = useState(() => new Api())
 
   const query = queryString.parse(useLocation().search)
   const hashA = query.a
