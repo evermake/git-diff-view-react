@@ -1,6 +1,8 @@
 export interface DiffApi {
   getDiffInfo(diffId: DiffId): Promise<DiffInfo>
   getDiffLines(params: GetDiffLinesParams): Promise<DiffLine[]>
+  getBranches(): Promise<string[]>
+  getCommits(branch: string): Promise<Commit[]>
 }
 
 /**
@@ -83,6 +85,11 @@ export type FileDiffInfo = {
   }
 )
 
+export interface Commit {
+  sha1: string
+  message: string
+}
+
 export class Api implements DiffApi {
   async getDiffInfo({ hashA, hashB }: DiffId): Promise<DiffInfo> {
     const res = await fetch(`http://localhost:7777/repo/diff/map?a=${hashA}&b=${hashB}`)
@@ -127,5 +134,17 @@ export class Api implements DiffApi {
         newLineNo: line.dst.number,
       }),
     }))
+  }
+
+  async getBranches() {
+    const res = await fetch('http://localhost:7777/repo/branches')
+    const data = await res.json()
+
+    return data.map((b: any) => b.name)
+  }
+
+  async getCommits(branch: string) {
+    const res = await fetch(`http://localhost:7777/repo/branches/${branch}/commits`)
+    return await res.json()
   }
 }

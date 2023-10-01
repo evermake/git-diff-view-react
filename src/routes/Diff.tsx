@@ -37,7 +37,7 @@ function Diff() {
     <div className={styles.root}>
       <header className={styles.header}>
         <div className={styles['header-left']}>
-          <Title level='3'>git diff</Title>
+          <Title level='3'>git diff #{hashA} #{hashB}</Title>
         </div>
         <div className={styles['header-right']}>
           <div></div>

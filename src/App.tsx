@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { AdaptivityProvider, AppRoot, ConfigProvider } from '@vkontakte/vkui'
 import { useLocalStorage } from '@uidotdev/usehooks'
 import Diff from './routes/Diff'
+import Selector from './routes/Selector'
 import { ThemeContext } from './hooks/useTheme'
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         <AppRoot>
           <ThemeContext.Provider value={{ theme, setTheme }}>
             <Routes>
-              <Route path="/" element={<Diff />} />
+              <Route path="/" element={<Selector/>}/>
+              <Route path="/diff" element={<Diff />} />
               <Route path="*" element={<>No such route on frontend</>} />
             </Routes>
           </ThemeContext.Provider>

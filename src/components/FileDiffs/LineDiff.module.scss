@@ -36,7 +36,7 @@
 
   &-void,
   &-void-line-no {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--vkui--color_background_content);
   }
 
   &-added {
@@ -47,9 +47,11 @@
     background: rgba(222, 53, 53, 0.2);
   }
 
-  &-default {}
+  &-not-modified {
+    background: var(--vkui--color_background_modal);
+  }
 
   &-last-right {
-    border-right: 1px solid var(--cell-border-color);
+    border-right: 1px solid var(--vkui--color_image_border_alpha);
   }
 }

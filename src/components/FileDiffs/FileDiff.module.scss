@@ -8,10 +8,6 @@
   border: #535353 0.01px solid;
 }
 
-.root.dark {
-  --cell-border-color: #222222;
-}
-
 .header {
   position: sticky;
   display: flex;
@@ -43,4 +39,22 @@
 
 .rotate-90 {
   transform: rotate(90deg);
+}
+
+.expand-row {
+  height: 16px;
+  background: var(--vkui--color_background_content);
+  color: inherit;
+
+  td {
+    border-top: 1px solid var(--vkui--color_image_border_alpha);
+    border-bottom: 1px solid var(--vkui--color_image_border_alpha);  
+  }
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+  }
 }
