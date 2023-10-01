@@ -108,21 +108,21 @@ export class Api implements DiffApi {
     return data.map((line: Record<string, any>) => ({
       type: typeMap[line.operation as ('M' | 'D' | 'A' | '')],
       ...(line.operation === 'M' && {
-        oldContent: line.src.content,
-        newContent: line.dst.content,
+        oldContent: line.src.content.substring(0, line.src.content.length - 1),
+        newContent: line.dst.content.substring(0, line.dst.content.length - 1),
         oldLineNo: line.src.number,
         newLineNo: line.dst.number,
       }),
       ...(line.operation === 'A' && {
-        content: line.dst.content,
+        content: line.dst.content.substring(0, line.dst.content.length - 1),
         lineNo: line.dst.number,
       }),
       ...(line.operation === 'D' && {
-        content: line.src.content,
+        content: line.src.content.substring(0, line.src.content.length - 1),
         lineNo: line.src.number,
       }),
       ...(line.operation === '' && {
-        content: line.src.content,
+        content: line.src.content.substring(0, line.src.content.length - 1),
         oldLineNo: line.src.number,
         newLineNo: line.dst.number,
       }),
