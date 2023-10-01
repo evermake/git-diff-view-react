@@ -1,7 +1,7 @@
 .root {
   display: flex;
   flex-direction: column;
-  margin-top: var(--diff-spacing);
+  margin-bottom: var(--diff-spacing);
   overflow: hidden;
 }
 
@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--vkui--color_image_border_alpha);
   padding: 6px 12px;
 }
 
@@ -22,10 +23,9 @@
   gap: 8px;
 }
 
-.content-collapsed {
+.hidden {
   display: none;
 }
-
 
 .content-table {
   table-layout: fixed;

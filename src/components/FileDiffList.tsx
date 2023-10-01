@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import type { DiffApi, DiffId, DiffInfo } from '../api/api'
 import useDynamicDiff from '../hooks/useDynamicDiff'
 import FileDiff from './FileDiffs/FileDiff'
-import DiffLoader from './DiffLoader'
+import DiffLoader from './DiffLoader/DiffLoader'
 
 interface P {
   diffId: DiffId
@@ -36,7 +36,10 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
   const { renderFiles, reachedTop, reachedBottom, continueBottom, continueTop, removeFromBottom, removeFromTop, jumpToFile } = useDynamicDiff(diffId, diffInfo, api, beforeUpdate)
 
   useImperativeHandle(ref, () => ({
-    jumpToFile,
+    jumpToFile: (path: string) => {
+      window.scrollTo(0, 0)
+      jumpToFile(path)
+    },
   }))
 
   useEffect(() => {
@@ -49,6 +52,9 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
       window.scrollBy(0, bottomPosition - bottomBefore)
     if (topBefore !== -1)
       window.scrollBy(0, topPosition - topBefore)
+
+    bottomBefore = -1
+    topBefore = -1
   }, [renderFiles])
 
   useEffect(() => {
@@ -66,10 +72,10 @@ const FileDiffList = forwardRef(({ diffId, diffInfo, api }: P, ref) => {
       if (topPosition > -2000 && !reachedTop.current)
         continueTop()
 
-      if (bottomPosition > 7000)
+      if (bottomPosition > 10000)
         removeFromBottom()
 
-      if (topPosition < -8000)
+      if (topPosition < -11000)
         removeFromTop()
     })
   }, [])

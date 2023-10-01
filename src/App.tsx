@@ -10,10 +10,9 @@ function App() {
 
   return (
     <ConfigProvider
-      platform="vkcom"
+      platform="ios"
       appearance={theme}
       isWebView={false}
-      hasCustomPanelHeaderAfter={false}
     >
       <AdaptivityProvider>
         <AppRoot>

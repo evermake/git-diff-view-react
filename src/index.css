@@ -1,3 +1,18 @@
 :root {
   --diff-spacing: 8px;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* VK icons are not displayed correctly for some reason. */
+.vk-icon-fix {
+  width: 100% !important;
+  height: 100% !important;
+}

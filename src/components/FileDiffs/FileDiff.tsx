@@ -1,8 +1,9 @@
 import { type ReactNode, useState } from 'react'
 import clsx from 'clsx'
 import { Card, IconButton, Placeholder, Title, useAppearance } from '@vkontakte/vkui'
-import { Icon16Chevron, Icon56DocumentOutline } from '@vkontakte/icons'
+import { Icon56DocumentOutline } from '@vkontakte/icons'
 import type { DiffLine } from '../../api/api'
+import IconChevron from '../icons/IconChevron'
 import styles from './FileDiff.module.scss'
 import LineDiff from './LineDiff'
 import FileIcon from '../FileIcon'
@@ -38,24 +39,29 @@ function FileDiff({
       />
       {isBinary
         ? (
-          <Placeholder icon={<Icon56DocumentOutline />}>
-            Бинарные файлы скрыты из отоборажения
-          </Placeholder>
-        )
+        <Placeholder
+          icon={<Icon56DocumentOutline />}
+          className={clsx({
+            [styles.hidden]: collapsed,
+          })}
+        >
+          Бинарные файлы скрыты из отоборажения
+        </Placeholder>
+          )
         : (
-          <table
-            className={clsx(
-              styles['content-table'],
-              {
-                [styles['content-table-collapsed']]: collapsed,
-              },
-            )}
-          >
-            <tbody>
-              {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
-            </tbody>
-          </table>
-        )
+        <table
+          className={clsx(
+            styles['content-table'],
+            {
+              [styles.hidden]: collapsed,
+            },
+          )}
+        >
+          <tbody>
+            {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
+          </tbody>
+        </table>
+          )
       }
     </Card>
   )
@@ -75,13 +81,13 @@ function FileHeader(props: FileHeaderProps) {
           onClick={props.onCollapseClick}
           aria-label='Скрыть/показать содержимое файла'
         >
-          <Icon16Chevron
-            width={16}
-            height={16}
+          <div
             className={clsx({
               [styles['rotate-90']]: !props.collapsed,
             })}
-          />
+          >
+            <IconChevron/>
+          </div>
         </IconButton>
         <FileIcon path={props.path} />
         <Title level="3">{props.path}</Title>

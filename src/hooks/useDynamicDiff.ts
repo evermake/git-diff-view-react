@@ -134,7 +134,7 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
     if (!isBottomReached) {
       for (let i = 0; i < meta.files.length; i++) {
         const file = meta.files[i]
-        if (!file.isBinary && file.diffStart >= lines[lines.length - 1].index) {
+        if (!file.isBinary && file.diffStart > lines[lines.length - 1].index) {
           lastRenderedFileIndex = i - 1
           break
         }
@@ -226,7 +226,7 @@ function useDynamicDiff(diffId: DiffId, meta: DiffInfo, api: DiffApi, beforeUpda
       }
     }
 
-    requestContent(fileStartsAtLine - Math.floor(LINES_IN_PAGE / 2), fileStartsAtLine + Math.floor(LINES_IN_PAGE / 2))
+    requestContent(fileStartsAtLine, fileStartsAtLine + LINES_IN_PAGE)
       .then(content => updateRenderFiles(content))
   }
 
