@@ -5,9 +5,9 @@ import { Icon16ArrowsUpDown, Icon56DocumentOutline } from '@vkontakte/icons'
 import type { DiffLine } from '../../api/api'
 import { assertNotReached } from '../../utils/assertNotReached'
 import IconChevron from '../icons/IconChevron'
+import FileIcon from '../FileIcon'
 import styles from './FileDiff.module.scss'
 import LineDiff from './LineDiff'
-import FileIcon from '../FileIcon'
 
 export interface FileDiffProps {
   path: string
@@ -85,7 +85,7 @@ function FileDiff({
           >
             Бинарные файлы скрыты из отоборажения
           </Placeholder>
-        )
+          )
         : (
           <table
             className={clsx(
@@ -102,7 +102,7 @@ function FileDiff({
               ))}
             </tbody>
           </table>
-        )
+          )
       }
     </Card>
   )

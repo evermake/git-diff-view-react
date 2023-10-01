@@ -15,7 +15,6 @@ import { useTheme } from '../hooks/useTheme'
 import SunOutline from '../components/icons/IconSunOutline'
 import MoonOutline from '../components/icons/IconMoonOutline'
 import styles from './Diff.module.scss'
-import FileIcon from '../components/FileIcon'
 
 function Diff() {
   const fileDiffList = useRef<any>(null)
@@ -56,10 +55,7 @@ function Diff() {
         <Separator />
         {diffInfo?.files.map(f =>
           <Cell key={f.path} onClick={() => fileDiffList.current.jumpToFile(f.path)}>
-            <div>
-              <FileIcon size={18} path={f.path} />
-              <Text>{f.path}</Text>
-            </div>
+            <Text>{f.path}</Text>
           </Cell>,
         )}
       </aside>

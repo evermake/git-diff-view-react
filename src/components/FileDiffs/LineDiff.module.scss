@@ -2,6 +2,7 @@
 
 .row {
   font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
   white-space: pre-wrap;
   word-wrap: anywhere;
 }
@@ -26,7 +27,7 @@
     padding: 0 6px 0 0;
     text-align: right;
     white-space: nowrap;
-    filter: saturate(4);
+    filter: saturate(3);
     user-select: none;
   }
 
@@ -40,11 +41,11 @@
   }
 
   &-added {
-    background: rgba(112, 222, 53, 0.2);
+    background: var(--line-added-bg-color);
   }
 
   &-deleted {
-    background: rgba(222, 53, 53, 0.2);
+    background: var(--line-deleted-bg-color);
   }
 
   &-not-modified {
