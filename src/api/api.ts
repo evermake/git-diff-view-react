@@ -85,7 +85,7 @@ export type FileDiffInfo = {
 
 export class Api implements DiffApi {
   async getDiffInfo({ hashA, hashB }: DiffId): Promise<DiffInfo> {
-    const res = await fetch(`http://localhost:7777/diff/map?a=${hashA}&b=${hashB}`)
+    const res = await fetch(`http://localhost:7777/repo/diff/map?a=${hashA}&b=${hashB}`)
     const data = await res.json()
     return {
       lines: data.linesTotal,
@@ -101,7 +101,7 @@ export class Api implements DiffApi {
   async getDiffLines({
     lineFrom, lineTo, diffId: { hashA, hashB },
   }: GetDiffLinesParams): Promise<DiffLine[]> {
-    const res = await fetch(`http://localhost:7777/diff/part?a=${hashA}&b=${hashB}&start=${lineFrom}&end=${lineTo}`)
+    const res = await fetch(`http://localhost:7777/repo/diff/part?a=${hashA}&b=${hashB}&start=${lineFrom}&end=${lineTo}`)
     const data = await res.json()
 
     const typeMap = { 'M': 'modified', 'D': 'deleted', 'A': 'added', '': 'not-modified' }
