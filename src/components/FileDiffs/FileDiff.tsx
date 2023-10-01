@@ -39,29 +39,29 @@ function FileDiff({
       />
       {isBinary
         ? (
-        <Placeholder
-          icon={<Icon56DocumentOutline />}
-          className={clsx({
-            [styles.hidden]: collapsed,
-          })}
-        >
-          Бинарные файлы скрыты из отоборажения
-        </Placeholder>
-          )
-        : (
-        <table
-          className={clsx(
-            styles['content-table'],
-            {
+          <Placeholder
+            icon={<Icon56DocumentOutline />}
+            className={clsx({
               [styles.hidden]: collapsed,
-            },
-          )}
-        >
-          <tbody>
-            {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
-          </tbody>
-        </table>
-          )
+            })}
+          >
+            Бинарные файлы скрыты из отоборажения
+          </Placeholder>
+        )
+        : (
+          <table
+            className={clsx(
+              styles['content-table'],
+              {
+                [styles.hidden]: collapsed,
+              },
+            )}
+          >
+            <tbody>
+              {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
+            </tbody>
+          </table>
+        )
       }
     </Card>
   )
@@ -86,10 +86,10 @@ function FileHeader(props: FileHeaderProps) {
               [styles['rotate-90']]: !props.collapsed,
             })}
           >
-            <IconChevron/>
+            <IconChevron />
           </div>
         </IconButton>
-        <FileIcon path={props.path} />
+        <FileIcon size={20} path={props.path} />
         <Title level="3">{props.path}</Title>
       </div>
     </div>
