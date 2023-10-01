@@ -5,6 +5,7 @@ import { Icon16Chevron, Icon56DocumentOutline } from '@vkontakte/icons'
 import type { DiffLine } from '../../api/api'
 import styles from './FileDiff.module.scss'
 import LineDiff from './LineDiff'
+import FileIcon from '../FileIcon'
 
 export interface FileDiffProps {
   path: string
@@ -37,24 +38,24 @@ function FileDiff({
       />
       {isBinary
         ? (
-        <Placeholder icon={<Icon56DocumentOutline />}>
-          Бинарные файлы скрыты из отоборажения
-        </Placeholder>
-          )
+          <Placeholder icon={<Icon56DocumentOutline />}>
+            Бинарные файлы скрыты из отоборажения
+          </Placeholder>
+        )
         : (
-        <table
-          className={clsx(
-            styles['content-table'],
-            {
-              [styles['content-table-collapsed']]: collapsed,
-            },
-          )}
-        >
-          <tbody>
-            {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
-          </tbody>
-        </table>
-          )
+          <table
+            className={clsx(
+              styles['content-table'],
+              {
+                [styles['content-table-collapsed']]: collapsed,
+              },
+            )}
+          >
+            <tbody>
+              {diffs.map((diff, i) => <LineDiff key={i} diff={diff} />)}
+            </tbody>
+          </table>
+        )
       }
     </Card>
   )
@@ -82,7 +83,8 @@ function FileHeader(props: FileHeaderProps) {
             })}
           />
         </IconButton>
-        <Title level="3">{ props.path }</Title>
+        <FileIcon path={props.path} />
+        <Title level="3">{props.path}</Title>
       </div>
     </div>
   )
