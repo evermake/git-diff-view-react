@@ -4,7 +4,7 @@
 
 ## Demo
 
-![demo](./resources/demo.mp4)
+https://github.com/evermake/git-diff-view-react/assets/53311479/d72dccbf-0ed3-4ae0-a45e-ad70210c116e
 
 ## Project setup
 
