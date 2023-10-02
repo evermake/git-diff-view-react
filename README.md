@@ -2,6 +2,10 @@
 
 > Mostly inspired by GitHub, based on VKUI. But dynamic.
 
+## Demo
+
+![demo](./resources/demo.mp4)
+
 ## Project setup
 
 0. Install `pnpm`
