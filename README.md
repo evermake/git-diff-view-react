@@ -1,5 +1,7 @@
 # React web-app for git diff
 
+> Mostly inspired by GitHub, based on VKUI. But dynamic.
+
 ## Project setup
 
 0. Install `pnpm`
